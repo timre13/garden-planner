@@ -1,0 +1,314 @@
+BOKORBAB:
+JÓ SZOMSZÉD: eper, uborka, tök, burgonya, karfiol, káposztafélék, retek, karalábé, saláták, zeller, paradicsom, cékla, sárgarépa, spenót, padlizsán, cukkíni, kukorica, napraforgó, mángold, paprika, kelbimbó, brokkoli, kínai káposzta, káposzta, kelkáposzta, csemegekukorica, fekete gyökér, menta, rozmaring, csombor, zsálya, bazsalikom, borágó, büdöske, sarkantyúvirág, cickafark
+ROSSZ SZOMSZÉD: borsó, fokhagyma, hagyma, póréhagyma, édeskömény, mogyoróhagyma, petrezselyem, cukorrépa, metélőhagyma, szőlő
+
+BORSÓ:
+JÓ SZOMSZÉD: kapor, uborka, tök, káposztafélék, karalábé, fejes saláta, kukorica, répa, hónapos retek, cukkíni, káposzta, zeller, spárga, padlizsán, spenót, fehérrépa, csemegekukorica, menta, rozmaring, cickafark
+ROSSZ SZOMSZÉD: bokorbab, burgonya, fokhagyma, póréhagyma, paradicsom, hagyma, szőlő, petrezselyem, metélőhagyma, kelbimbó, édeskömény
+
+BURGONYA:
+JÓ SZOMSZÉD: kései káposztafélék, karalábé, kukorica, torma, spenót, saláta, fokhagyma, karfiol, káposzta, brokkoli, csicsóka, bokorbab, póréhagyma, kínai káposzta, kelbimbó, leveles kel, lóbab, kamilla, borsmenta, rozmaring, len, ánizs, koriander, csalán, kömény, sarkantyúka, büdöske, petúnia, körömvirág
+ROSSZ SZOMSZÉD: borsó, cékla, zeller, körtefa, napraforgó, tök, paradicsom, uborka, hagyma, padlizsán, diófa, patiszon, csemegekukorica, málna, almafa, őszi és sárgabarack fa
+
+CÉKLA:
+JÓ SZOMSZÉD: bokorbab, kapor, uborka, fokhagyma, káposztafélék, zeller, karalábé, tépősaláta, cukkíni, hagyma, karfiol, káposzta, saláta, kelbimbó, kömény, koriander, zsálya
+ROSSZ SZOMSZÉD: burgonya, spárga, futóbab, póréhagyma, kukorica, spenót, paradicsom, sárgarépa
+
+CUKKINI:
+JÓ SZOMSZÉD: kukorica, cékla, karósbab, hagyma, borsó, futóbab, bokorbab, káposztafélék, csemegekukorica, borágó, sarkantyúka, petúnia
+ROSSZ SZOMSZÉD: paradicsom
+
+FEJES SALÁTA:
+JÓ SZOMSZÉD: futóbab, eper, uborka, káposztafélék, tök, karalábé, borsó, póréhagyma, retek, sárgarépa, cékla, paradicsom, hagyma, mángold, cukorrépa, mogyoróhagyma, fehérrépa, karfiol, fokhagyma, patiszon, burgonya, kelbimbó, bokorbab, articsóka, metélőhagyma, kelkáposzta, káposzta, brokkoli, édes kömény, fekete gyökér, rozmaring, turbolya, zsálya, borsmenta, kapor, büdöske (bársonyvirág)
+ROSSZ SZOMSZÉD: petrezselyem, zeller, lóbab, napraforgó, kukorica
+
+FOKHAGYMA:
+JÓ SZOMSZÉD: eper, uborka, cékla, sárgarépa, paradicsom, burgonya, zeller, padlizsán, retek, kelbimbó, brokkoli, saláta, cukorrépa, karfiol, paprika, kínai káposzta, kelkáposzta, rozmaring, kamilla, liliom, tulipán, rózsa, málna, szőlő, gyümölcsfák (körtefa, almafa, őszbarack fa, sárgabarack fa)
+ROSSZ SZOMSZÉD: borsó, káposztafélék, karósbab, futóbab, spárga, bokorbab, leveles kel, fehérrépa, káposzta
+
+HAGYMA:
+JÓ SZOMSZÉD: eper, uborka, fejes saláta, sárgarépa, cékla, paradicsom, paprika, mángold, cukkíni, spenót, tök, kelkáposzta, zeller, póréhagyma, brokkoli, karotta, karfiol, kelbimbó, pasztinák, cukorrépa, kapor, édeskömény, kamilla, borsikafű (csombor), bazsalikom, majoránna, petrezselyem, rózsa
+ROSSZ SZOMSZÉD: bokorbab, káposztafélék, leveles kel, burgonya, káposzta, spárga, retek, karalábé, borsó futóbab, kerti ruta, zsálya
+
+HÓNAPOS RETEK:
+JÓ SZOMSZÉD: bokorbab, borsó, karalábé, fejes saláta, mángold, sárgarépa, spenót, paradicsom, fokhagyma, futóbab, paszternák, eper, tök, cukorrépa, zeller, brokkoli, karfiol, dinnye, póréhagyma, fekete gyökér, menta, kerti zsázsa, turbolya, zsálya, petrezselyem, sarkantyúvirág, szőlő
+ROSSZ SZOMSZÉD: uborka, hagyma, patiszon, káposzta, kelkáposzta, izsóp
+
+KÁPOSZTA FÉLÉK:
+JÓ SZOMSZÉD: bokorbab, endívia, borsó, burgonya, saláta, mángold, tök, cékla, zeller, spenót, paradicsom, dinnye, sárgarépa, uborka, brokkoli, cukkíni, futóbab, rebarbara, kapor, üröm, borágó, kamilla, kakukkfű, zsálya, bazsalikom, menta, koriander, rozmaring, borsikafű (csombor), sarkantyúvirág, cickafark
+ROSSZ SZOMSZÉD: eper, mustár, fokhagyma, hagyma, petrezselyem
+
+KARALÁBÉ:
+JÓ SZOMSZÉD: bokorbab, borsó, burgonya, retek, cékla, fejes saláta, zeller, spenót, póréhagyma, borágó, bazsalikom, rozmaring
+ROSSZ SZOMSZÉD: paprika, paradicsom, hagyma, futóbab, édes kömény
+
+KUKORICA:
+JÓ SZOMSZÉD: bokorbab, uborka, burgonya, sütőtök dinnye, paradicsom, cukkíni, patiszon, napraforgó, borsó, futóbab, spenót, tök, kapor, muskátli, facélia
+ROSSZ SZOMSZÉD: cékla, zeller, saláta, sárgarépa, menta, rozmaring
+
+NAPRAFORGÓ:
+JÓ SZOMSZÉD: uborka, tök, kukorica, bokorbab, futóbab, csemegekukorica, cickafark
+ROSSZ SZOMSZÉD: burgonya, saláta
+
+PARADICSOM:
+JÓ SZOMSZÉD: zeller, fokhagyma, bokorbab, padlizsán, póréhagyma, retek, káposztafélék, spenót, hagyma, fejes saláta, sárgarépa, paprika, metélőhagyma, spárga, kelkáposzta, brokkoli, tépősaláta, zsálya, bazsalikom, borágó, menta, citromfű, rozmaring, csalán, petrezselyem, büdöske, petúnia, sarkantyúvirág, körömvirág, rézvirág
+ROSSZ SZOMSZÉD: borsó, burgonya, cukorrépa, uborka, futóbab, cékla, cukkíni, karfiol, kelbimbó, karalábé, kapor, kömény, édeskömény, diófa, őszi és sárgabarack fa
+
+PÓRÉHAGYMA:
+JÓ SZOMSZÉD: eper, hagyma, retek karalábé, fejes saláta, sárgarépa, zeller, paradicsom, spárga, spenót, endívia, burgonya, fekete gyökér, kamilla, petrezselyem, édes kömény
+ROSSZ SZOMSZÉD: bokorbab, borsó, cékla, káposzta
+
+SÁRGARÉPA:
+JÓ SZOMSZÉD: borsó, retek, spárga fokhagyma, mángold, póréhagyma, uborka, metélőhagyma, saláta, paprika, mogyoróhagyma, paradicsom, hagymák, bokorbab káposztafélék, bokorbab, rozmaring, zsálya, menta, turbolya, petrezselyem, kapor
+ROSSZ SZOMSZÉD: cékla, cukorrépa, zeller, kukorica, csemegekukorica, kömény, ánizs, kapor
+
+SPENÓT:
+JÓ SZOMSZÉD: eper, burgonya, zeller káposztafélék, borsó, karalábé, retek, karósbab, padlizsán paradicsom, hagyma, póréhagyma, karfiol, bokorbab, kukorica, csemegekukorica, káposzta
+ROSSZ SZOMSZÉD: cukorrépa, cékla
+
+PATISZON:
+JÓ SZOMSZÉD: saláta, kukorica, dinnye, csemegekukorica, lóbab, bazsalikom, sarkantyúvirág, petúnia
+ROSSZ SZOMSZÉD: burgonya, retek
+
+EPER:
+JÓ SZOMSZÉD: bokorbab, futóbab, fokhagyma, fejes saláta, póréhagyma, hónapos retek, spenót, hagyma, metélőhagyma, borágó, zsálya, körömvirág, csalán
+ROSSZ SZOMSZÉD: káposztafélék, brokkoli, karfiol, kelbimbó, káposzta
+
+TORMA:
+JÓ SZOMSZÉD: burgonya, gyümölcsfák (körtefa, almafa, diófa, őszibarack fa, sárgabarack fa)
+
+UBORKA:
+JÓ SZOMSZÉD: káposztafélék, cékla, napraforgó, zeller, bokorbab, saláta, kukorica, hagyma, sárgarépa, borsó, brokkoli, karfiol, leveles kel, futóbab, fokhagyma, metélőhagyma, csemegekukorica, káposzta, kapor, bazsalikom, koriander, borsikafű (csombor), édeskömény, kömény, rozmaring, büdöske, sarkantyúvirág, petúnia
+ROSSZ SZOMSZÉD: paradicsom, burgonya, dinnye, retek, zsálya, izsóp
+
+ZELLER:
+JÓ SZOMSZÉD: káposztafélék, cékla, karalábé, fokhagyma, uborka, bokorbab, spenót, póréhagyma, borsó, paradicsom, retek, kínai káposzta, karfiol, káposzta, kelbimbó, hagyma, édeskömény, kamilla, sarkantyúvirág
+ROSSZ SZOMSZÉD: saláta, burgonya, kukorica, petrezselyem, sárgarépa
+
+CUKORRÉPA:
+JÓ SZOMSZÉD: zeller, káposzta, saláta, hagyma, retek, fokhagyma, cickafark
+ROSSZ SZOMSZÉD: bokorbab, spenót, spárga, sárgarépa, paradicsom
+
+TÖK:
+JÓ SZOMSZÉD: bokorbab, saláta, hagyma, borsó, csemegekukorica, kukorica, napraforgó, dinnye, retek, káposztafélék, menta, borágó, rozmaring, sarkantyúvirág, petúnia
+ROSSZ SZOMSZÉD: burgonya
+
+PAPRIKA:
+JÓ SZOMSZÉD: padlizsán, hagyma, paradicsom, sárgarépa, fokhagyma, bokorbab, oregánó, majoránna, bazsalikom, rézvirág, büdöske, muskátli
+ROSSZ SZOMSZÉD: karalábé, édeskömény, diófa
+
+PADLIZSÁN:
+JÓ SZOMSZÉD: paprika, bokorbab, borsó, paradicsom, spenót, fokhagyma, futóbab, kakukkfű, tárkony, menta, petrezselyem, büdöske
+ROSSZ SZOMSZÉD: burgonya, sárgabarack fa, kerti ruta
+
+KARFIOL:
+JÓ SZOMSZÉD: bokorbab, cékla, burgonya, zeller, hagyma, fokhagyma, retek, spenót, uborka, saláta, kapor, rozmaring, izsóp, kakukkfű, kamilla, menta, bazsalikom, zsálya, büdöske, sarkantyúvirág
+ROSSZ SZOMSZÉD: paradicsom, eper, szőlő, kerti ruta
+
+DINNYE:
+JÓ SZOMSZÉD: káposztafélék, tök, kukorica, retek, patiszon, csemegekukorica, sarkantyúvirág, petúnia, büdöske
+ROSSZ SZOMSZÉD: uborka
+
+FUTÓBAB (karósbab):
+JÓ SZOMSZÉD: káposztafélék, retek, kukorica, sárgarépa, spenót, endívia, eper, brokkoli, uborka, kínai káposzta, káposzta, burgonya, csemegekukorica, saláta, padlizsán, cukkíni, napraforgó, rozmaring, bazsalikom, borsfű, borágó, menta, sarkantyúvirág, büdöske, szagos bükköny, petúnia, rézvirág
+ROSSZ SZOMSZÉD: mogyoróhagyma, fokhagyma, édeskömény, paradicsom, szőlő, karalábé, hagyma, cékla, petrezselyem
+
+SPÁRGA:
+JÓ SZOMSZÉD: sárgarépa, paradicsom, articsóka, borsó, póréhagyma, édeskömény, petrezselyem, bazsalikom, őszibarack fa, petúnia
+ROSSZ SZOMSZÉD: fokhagyma, cukorrépa, hagyma, cékla
+
+BROKKOLI:
+JÓ SZOMSZÉD: paradicsom, retek, káposztafélék, saláta, uborka, bokorbab, burgonya, fokhagyma, hagyma, futóbab, rozmaring, kapor, kakukkfű, zsálya, bazsalikom, menta, izsóp, büdöske, sarkantyúvirág
+ROSSZ SZOMSZÉD: eper, szőlő
+
+KELBIMBÓ:
+JÓ SZOMSZÉD: fehérrépa, cékla, fokhagyma, zeller, bokorbab, saláta, burgonya, hagyma, kapor, kamilla, rozmaring, izsóp, bazsalikom, menta, kakukkfű, zsálya, sarkantyúvirág
+ROSSZ SZOMSZÉD: paradicsom, borsó, kerti ruta, szőlő, eper
+
+METÉLŐHAGYMA:
+JÓ SZOMSZÉD: sárgarépa, eper, uborka, paradicsom, saláta, cikória, kamilla, kapor, borsikafű (csombor), ánizs, bazsalikom, rózsa, szőlő, almafa
+ROSSZ SZOMSZÉD: bokorbab, borsó
+
+PETREZSELYEM:
+JÓ SZOMSZÉD: póréhagyma, retek, paradicsom, spárga, hagyma, padlizsán, sárgarépa, rozmaring, büdöske, rózsa
+ROSSZ SZOMSZÉD: káposztafélék, zeller, bokorbab, saláta, futóbab, káposzta, borsó , menta
+
+KÁPOSZTA:
+JÓ SZOMSZÉD: burgonya, spenót, futóbab, zeller, cékla, cukorrépa, uborka, bokorbab, saláta, fehérrépa, borsó, fekete gyökér, mángold, rozmaring, kapor, kakukkfű, menta, zsálya, borágó, bazsalikom, izsóp, kamilla, üröm, sarkantyúvirág, büdöske
+ROSSZ SZOMSZÉD: mogyoróhagyma, eper, fokhagyma, póréhagyma, retek, hagyma, petrezselyem, édeskömény, cikória, szőlő
+
+LEVELES KEL (KELKÁPOSZTA):
+JÓ SZOMSZÉD: bokorbab, uborka, saláta, burgonya, paradicsom, fokhagyma, hagyma, bazsalikom, izsóp, kapor, menta, rozmaring, zsálya, kakukkfű, büdöske, sarkantyúvirág
+ROSSZ SZOMSZÉD: fokhagyma, hagyma, szőlő, kerti ruta, retek
+
+FEHÉR RÉPA:
+JÓ SZOMSZÉD: kelbimbó, borsó, káposzta, saláta, rozmaring, menta
+ROSSZ SZOMSZÉD: fokhagyma
+
+KINAI KÁPOSZTA:
+JÓ SZOMSZÉD: bokorbab, fokhagyma, zeller, burgonya, futóbab, rozmaring, kapor, borsikafű, menta, kakukkfű, zsálya, sarkantyúvirág
+ROSSZ SZOMSZÉD: szőlő
+
+KÖMÉNY:
+JÓ SZOMSZÉD: cékla, uborka, édeskömény, A felsorolt ROSSZ szomszédokon kívül, gyakorlatilag bárhová lehet vetni, ültetni!!
+ROSSZ SZOMSZÉD: paradicsom, sárgarépa, kapor
+
+MÁNGOLD:
+JÓ SZOMSZÉD: hagyma, bokorbab, káposztafélék, retek, sárgarépa, saláta, káposzta, cickafark
+ROSSZ SZOMSZÉD: Nem ismert
+
+TÉPŐSALÁTA:
+JÓ SZOMSZÉD: paradicsom, cékla
+ROSSZ SZOMSZÉD: Nem ismert
+
+PASZTINÁK:
+JÓ SZOMSZÉD: retek, hagyma, lóbab, kamilla
+ROSSZ SZOMSZÉD: kapor
+
+ENDIVIA:
+JÓ SZOMSZÉD: káposztafélék, futóbab, póréhagyma, édes kömény
+ROSSZ SZOMSZÉD: Nem ismert
+
+CSEMEGEKUKORICA:
+JÓ SZOMSZÉD: uborka, borsó, futóbab, bokorbab, spenót, tök, cukkíni, patiszon, napraforgó, dinnye, facélia, kapor, muskátli
+ROSSZ SZOMSZÉD: saláta, sárgarépa, burgonya, zeller, menta, rozmaring
+
+ÉDESKÖMÉNY:
+JÓ SZOMSZÉD: saláta, uborka, endívia, póréhagyma, hagyma, zeller, spárga, zsálya, kapor, kömény, cickafark
+ROSSZ SZOMSZÉD: paradicsom, kapor, borsó, káposzta, karalábé, futó-és bokorbab, paradicsom, paprika, koriander
+
+FEKETE GYÖKÉR:
+JÓ SZOMSZÉD: retek, káposzta, saláta, póréhagyma, bokorbab
+
+LÓBAB:
+JÓ SZOMSZÉD: pasztinák, burgonya, rézvirág, cickafark
+ROSSZ SZOMSZÉD: fejes saláta
+
+BAZSALIKOM:
+JÓ SZOMSZÉD: kelbimbó, futóbab, bokorbab, hagyma, káposztafélék, patiszon, brokkoli, káposzta, karfiol, leveles kel, paprika, paradicsom, karalábé, metélőhagyma, uborka, spárga, oregánó, büdöske, petúnia
+ROSSZ SZOMSZÉD: kerti ruta, rozmaring, kamilla, ánizs
+
+BORÁGÓ:
+JÓ SZOMSZÉD: bokorbab, káposztafélék, cukkíni, tök, eper, paradicsom, káposzta, karalábé, futóbab, cickafarok
+
+MENTA:
+JÓ SZOMSZÉD: futóbab, káposzta, fehérrépa, kelbimbó, padlizsán, brokkoli, bokorbab, borsó, burgonya, saláta, retek, káposztafélék, sárgarépa, tök, kínai káposzta, leveles kel karfiol, paradicsom, gyümölcsfák
+ROSSZ SZOMSZÉD: petrezselyem, kukorica, csemegekukorica
+
+IZSÓP:
+JÓ SZOMSZÉD: brokkoli, kelbimbó, káposzta, karfiol, kínai káposzta, kelkáposzta, szőlő
+ROSSZ SZOMSZÉD: retek, uborka
+
+ROZMARING:
+JÓ SZOMSZÉD: bab, fokhagyma, tök, káposztafélék, saláta uborka, karalábé, sárgarépa, petrezselyem, fehérrépa, kelbimbó, káposzta, kelkáposzta, brokkoli, kínai káposzta, futóbab, bokorbab, borsó, burgonya, paradicsom, karfiol, cickafark
+ROSSZ SZOMSZÉD: bazsalikom, kukorica, csemegekukorica
+
+CSOMBOR (borsikafű):
+JÓ SZOMSZÉD: bokorbab, futóbab, kínai káposzta, hagyma, káposztafélék, uborka, metélőhagyma
+
+ZSÁLYA:
+JÓ SZOMSZÉD: édeskömény, karfiol, brokkoli, kelbimbó, káposzta, kelkáposzta, kínai káposzta, bokorbab, cékla, saláta, retek, káposztafélék, paradicsom, sárgarépa, eper
+ROSSZ SZOMSZÉD: hagyma, uborka
+
+CITROMFŰ:
+JÓ SZOMSZÉD: paradicsom
+
+TÁRKONY:
+JÓ SZOMSZÉD: padlizsán
+
+MOGYORÓHAGYMA:
+JÓ SZOMSZÉD: saláta, sárgarépa
+ROSSZ SZOMSZÉD: bokorbab, futóbab, káposzta
+
+KAKUKKFŰ:
+JÓ SZOMSZÉD: káposztafélék, padlizsán, karfiol, brokkoli, kelbimbó, káposzta, kelkáposzta, kínai káposzta
+
+CIKÓRIA:
+JÓ SZOMSZÉD: metélőhagyma
+ROSSZ SZOMSZÉD: káposzta
+
+SZŐLŐ:
+JÓ SZOMSZÉD: fokhagyma, retek, metélőhagyma, izsóp
+ROSSZ SZOMSZÉD: bokorbab, borsó, karfiol, futóbab, brokkoli, kelbimbó, kelkáposzta, kínai káposzta
+
+ÜRÖM:
+JÓ SZOMSZÉD: káposzta és káposztafélék
+
+KAPOR:
+JÓ SZOMSZÉD: cékla, metélőhagyma, brokkoli, kelbimbó, káposzta, kelkáposzta, kínai káposzta, borsó, uborka, saláta, hagyma, káposztafélék, kukorica, sárgarépa, karfiol
+ROSSZ SZOMSZÉD: paradicsom, kömény, pasztinák, édes kömény
+
+CSICSÓKA:
+JÓ SZOMSZÉD: burgonya
+
+KAMILLA:
+JÓ SZOMSZÉD: burgonya, fokhagyma, hagyma, káposztafélék, póréhagyma, zeller, karfiol, kelbimbó, metélőhagyma, káposzta, pasztinák
+ROSSZ SZOMSZÉD: bazsalikom
+
+MUSTÁR:
+ROSSZ SZOMSZÉD: káposztafélék
+
+ÁNIZS:
+JÓ SZOMSZÉD: burgonya, metélőhagyma
+ROSSZ SZOMSZÉD: sárgarépa, bazsalikom
+
+KORIANDER:
+JÓ SZOMSZÉD: burgonya, cékla, káposztafélék, uborka
+ROSSZ SZOMSZÉD: édes kömény
+
+LEN:
+JÓ SZOMSZÉD: burgonya
+
+CSALÁN:
+JÓ SZOMSZÉD: burgonya, paradicsom, eper
+
+FACÉLIA:
+JÓ SZOMSZÉD: csemegekukorica
+
+KÖRTEFA:
+JÓ SZOMSZÉD: fokhagyma, torma, körömvirág, kerti zsázsa, sarkantyúvirág, menta
+ROSSZ SZOMSZÉD: burgonya
+
+DIÓFA:
+JÓ SZOMSZÉD: torma, körömvirág
+ROSSZ SZOMSZÉD: burgonya, paprika, paradicsom
+
+MÁLNA:
+JÓ SZOMSZÉD: fokhagyma
+ROSSZ SZOMSZÉD: burgonya
+
+ALMAFA:
+JÓ SZOMSZÉD: fokhagyma, torma, metélőhagyma, körömvirág, kerti zsázsa, sarkantyúvirág, menta
+ROSSZ SZOMSZÉD: burgonya
+
+ŐSZIBARACK FA:
+JÓ SZOMSZÉD: fokhagyma, torma, spárga, körömvirág, kerti zsázsa, sarkantyúvirág, menta
+ROSSZ SZOMSZÉD: burgonya, paradicsom
+
+SÁRGABARACK FA:
+JÓ SZOMSZÉD: fokhagyma, torma, körömvirág, kerti zsázsa, sarkantyúvirág, menta
+ROSSZ SZOMSZÉD: burgonya, paradicsom, padlizsán
+
+ARTICSÓKA:
+JÓ SZOMSZÉD: saláta, spárga
+
+TURBOLYA:
+JÓ SZOMSZÉD: saláta, retek, sárgarépa
+
+KAROTTA:
+JÓ SZOMSZÉD: hagyma
+
+MAJORANNA:
+JÓ SZOMSZÉD: hagyma, paprika
+
+KERTI RUTA:
+ROSSZ SZOMSZÉD: hagyma, karfiol, kelbimbó, kelkáposzta, bazsalikom, padlizsán
+
+KERTI ZSÁZSA:
+JÓ SZOMSZÉD: retek, gyümölcsfák
+
+REBARBARA:
+JÓ SZOMSZÉD: káposztafélék
+
+OREGÁNÓ:
+JÓ SZOMSZÉD: paprika, bazsalikom

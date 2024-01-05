@@ -1,0 +1,1386 @@
+<xml>
+    <plant name="bokorbab">
+        <good>eper</good>
+        <good>uborka</good>
+        <good>tök</good>
+        <good>burgonya</good>
+        <good>karfiol</good>
+        <good>káposztafélék</good>
+        <good>retek</good>
+        <good>karalábé</good>
+        <good>saláták</good>
+        <good>zeller</good>
+        <good>paradicsom</good>
+        <good>cékla</good>
+        <good>sárgarépa</good>
+        <good>spenót</good>
+        <good>padlizsán</good>
+        <good>cukkíni</good>
+        <good>kukorica</good>
+        <good>napraforgó</good>
+        <good>mángold</good>
+        <good>paprika</good>
+        <good>kelbimbó</good>
+        <good>brokkoli</good>
+        <good>kínai káposzta</good>
+        <good>káposzta</good>
+        <good>kelkáposzta</good>
+        <good>csemegekukorica</good>
+        <good>fekete gyökér</good>
+        <good>menta</good>
+        <good>rozmaring</good>
+        <good>csombor</good>
+        <good>zsálya</good>
+        <good>bazsalikom</good>
+        <good>borágó</good>
+        <good>büdöske</good>
+        <good>sarkantyúvirág</good>
+        <good>cickafark</good>
+        <bad>borsó</bad>
+        <bad>fokhagyma</bad>
+        <bad>hagyma</bad>
+        <bad>póréhagyma</bad>
+        <bad>édeskömény</bad>
+        <bad>mogyoróhagyma</bad>
+        <bad>petrezselyem</bad>
+        <bad>cukorrépa</bad>
+        <bad>metélőhagyma</bad>
+        <bad>szőlő</bad>
+    </plant>
+    <plant name="borsó">
+        <good>kapor</good>
+        <good>uborka</good>
+        <good>tök</good>
+        <good>káposztafélék</good>
+        <good>karalábé</good>
+        <good>fejes saláta</good>
+        <good>kukorica</good>
+        <good>répa</good>
+        <good>hónapos retek</good>
+        <good>cukkíni</good>
+        <good>káposzta</good>
+        <good>zeller</good>
+        <good>spárga</good>
+        <good>padlizsán</good>
+        <good>spenót</good>
+        <good>fehérrépa</good>
+        <good>csemegekukorica</good>
+        <good>menta</good>
+        <good>rozmaring</good>
+        <good>cickafark</good>
+        <bad>bokorbab</bad>
+        <bad>burgonya</bad>
+        <bad>fokhagyma</bad>
+        <bad>póréhagyma</bad>
+        <bad>paradicsom</bad>
+        <bad>hagyma</bad>
+        <bad>szőlő</bad>
+        <bad>petrezselyem</bad>
+        <bad>metélőhagyma</bad>
+        <bad>kelbimbó</bad>
+        <bad>édeskömény</bad>
+    </plant>
+    <plant name="burgonya">
+        <good>kései káposztafélék</good>
+        <good>karalábé</good>
+        <good>kukorica</good>
+        <good>torma</good>
+        <good>spenót</good>
+        <good>saláta</good>
+        <good>fokhagyma</good>
+        <good>karfiol</good>
+        <good>káposzta</good>
+        <good>brokkoli</good>
+        <good>csicsóka</good>
+        <good>bokorbab</good>
+        <good>póréhagyma</good>
+        <good>kínai káposzta</good>
+        <good>kelbimbó</good>
+        <good>leveles kel</good>
+        <good>lóbab</good>
+        <good>kamilla</good>
+        <good>borsmenta</good>
+        <good>rozmaring</good>
+        <good>len</good>
+        <good>ánizs</good>
+        <good>koriander</good>
+        <good>csalán</good>
+        <good>kömény</good>
+        <good>sarkantyúka</good>
+        <good>büdöske</good>
+        <good>petúnia</good>
+        <good>körömvirág</good>
+        <bad>borsó</bad>
+        <bad>cékla</bad>
+        <bad>zeller</bad>
+        <bad>körtefa</bad>
+        <bad>napraforgó</bad>
+        <bad>tök</bad>
+        <bad>paradicsom</bad>
+        <bad>uborka</bad>
+        <bad>hagyma</bad>
+        <bad>padlizsán</bad>
+        <bad>diófa</bad>
+        <bad>patiszon</bad>
+        <bad>csemegekukorica</bad>
+        <bad>málna</bad>
+        <bad>almafa</bad>
+        <bad>őszi és sárgabarack fa</bad>
+    </plant>
+    <plant name="cékla">
+        <good>bokorbab</good>
+        <good>kapor</good>
+        <good>uborka</good>
+        <good>fokhagyma</good>
+        <good>káposztafélék</good>
+        <good>zeller</good>
+        <good>karalábé</good>
+        <good>tépősaláta</good>
+        <good>cukkíni</good>
+        <good>hagyma</good>
+        <good>karfiol</good>
+        <good>káposzta</good>
+        <good>saláta</good>
+        <good>kelbimbó</good>
+        <good>kömény</good>
+        <good>koriander</good>
+        <good>zsálya</good>
+        <bad>burgonya</bad>
+        <bad>spárga</bad>
+        <bad>futóbab</bad>
+        <bad>póréhagyma</bad>
+        <bad>kukorica</bad>
+        <bad>spenót</bad>
+        <bad>paradicsom</bad>
+        <bad>sárgarépa</bad>
+    </plant>
+    <plant name="cukkini">
+        <good>kukorica</good>
+        <good>cékla</good>
+        <good>karósbab</good>
+        <good>hagyma</good>
+        <good>borsó</good>
+        <good>futóbab</good>
+        <good>bokorbab</good>
+        <good>káposztafélék</good>
+        <good>csemegekukorica</good>
+        <good>borágó</good>
+        <good>sarkantyúka</good>
+        <good>petúnia</good>
+        <bad>paradicsom</bad>
+    </plant>
+    <plant name="fejes saláta">
+        <good>futóbab</good>
+        <good>eper</good>
+        <good>uborka</good>
+        <good>káposztafélék</good>
+        <good>tök</good>
+        <good>karalábé</good>
+        <good>borsó</good>
+        <good>póréhagyma</good>
+        <good>retek</good>
+        <good>sárgarépa</good>
+        <good>cékla</good>
+        <good>paradicsom</good>
+        <good>hagyma</good>
+        <good>mángold</good>
+        <good>cukorrépa</good>
+        <good>mogyoróhagyma</good>
+        <good>fehérrépa</good>
+        <good>karfiol</good>
+        <good>fokhagyma</good>
+        <good>patiszon</good>
+        <good>burgonya</good>
+        <good>kelbimbó</good>
+        <good>bokorbab</good>
+        <good>articsóka</good>
+        <good>metélőhagyma</good>
+        <good>kelkáposzta</good>
+        <good>káposzta</good>
+        <good>brokkoli</good>
+        <good>édes kömény</good>
+        <good>fekete gyökér</good>
+        <good>rozmaring</good>
+        <good>turbolya</good>
+        <good>zsálya</good>
+        <good>borsmenta</good>
+        <good>kapor</good>
+        <good>büdöske (bársonyvirág)</good>
+        <bad>petrezselyem</bad>
+        <bad>zeller</bad>
+        <bad>lóbab</bad>
+        <bad>napraforgó</bad>
+        <bad>kukorica</bad>
+    </plant>
+    <plant name="fokhagyma">
+        <good>eper</good>
+        <good>uborka</good>
+        <good>cékla</good>
+        <good>sárgarépa</good>
+        <good>paradicsom</good>
+        <good>burgonya</good>
+        <good>zeller</good>
+        <good>padlizsán</good>
+        <good>retek</good>
+        <good>kelbimbó</good>
+        <good>brokkoli</good>
+        <good>saláta</good>
+        <good>cukorrépa</good>
+        <good>karfiol</good>
+        <good>paprika</good>
+        <good>kínai káposzta</good>
+        <good>kelkáposzta</good>
+        <good>rozmaring</good>
+        <good>kamilla</good>
+        <good>liliom</good>
+        <good>tulipán</good>
+        <good>rózsa</good>
+        <good>málna</good>
+        <good>szőlő</good>
+        <good>gyümölcsfák (körtefa</good>
+        <good>almafa</good>
+        <good>őszbarack fa</good>
+        <good>sárgabarack fa)</good>
+        <bad>borsó</bad>
+        <bad>káposztafélék</bad>
+        <bad>karósbab</bad>
+        <bad>futóbab</bad>
+        <bad>spárga</bad>
+        <bad>bokorbab</bad>
+        <bad>leveles kel</bad>
+        <bad>fehérrépa</bad>
+        <bad>káposzta</bad>
+    </plant>
+    <plant name="hagyma">
+        <good>eper</good>
+        <good>uborka</good>
+        <good>fejes saláta</good>
+        <good>sárgarépa</good>
+        <good>cékla</good>
+        <good>paradicsom</good>
+        <good>paprika</good>
+        <good>mángold</good>
+        <good>cukkíni</good>
+        <good>spenót</good>
+        <good>tök</good>
+        <good>kelkáposzta</good>
+        <good>zeller</good>
+        <good>póréhagyma</good>
+        <good>brokkoli</good>
+        <good>karotta</good>
+        <good>karfiol</good>
+        <good>kelbimbó</good>
+        <good>pasztinák</good>
+        <good>cukorrépa</good>
+        <good>kapor</good>
+        <good>édeskömény</good>
+        <good>kamilla</good>
+        <good>borsikafű (csombor)</good>
+        <good>bazsalikom</good>
+        <good>majoránna</good>
+        <good>petrezselyem</good>
+        <good>rózsa</good>
+        <bad>bokorbab</bad>
+        <bad>káposztafélék</bad>
+        <bad>leveles kel</bad>
+        <bad>burgonya</bad>
+        <bad>káposzta</bad>
+        <bad>spárga</bad>
+        <bad>retek</bad>
+        <bad>karalábé</bad>
+        <bad>borsó futóbab</bad>
+        <bad>kerti ruta</bad>
+        <bad>zsálya</bad>
+    </plant>
+    <plant name="hónapos retek">
+        <good>bokorbab</good>
+        <good>borsó</good>
+        <good>karalábé</good>
+        <good>fejes saláta</good>
+        <good>mángold</good>
+        <good>sárgarépa</good>
+        <good>spenót</good>
+        <good>paradicsom</good>
+        <good>fokhagyma</good>
+        <good>futóbab</good>
+        <good>paszternák</good>
+        <good>eper</good>
+        <good>tök</good>
+        <good>cukorrépa</good>
+        <good>zeller</good>
+        <good>brokkoli</good>
+        <good>karfiol</good>
+        <good>dinnye</good>
+        <good>póréhagyma</good>
+        <good>fekete gyökér</good>
+        <good>menta</good>
+        <good>kerti zsázsa</good>
+        <good>turbolya</good>
+        <good>zsálya</good>
+        <good>petrezselyem</good>
+        <good>sarkantyúvirág</good>
+        <good>szőlő</good>
+        <bad>uborka</bad>
+        <bad>hagyma</bad>
+        <bad>patiszon</bad>
+        <bad>káposzta</bad>
+        <bad>kelkáposzta</bad>
+        <bad>izsóp</bad>
+    </plant>
+    <plant name="káposzta félék">
+        <good>bokorbab</good>
+        <good>endívia</good>
+        <good>borsó</good>
+        <good>burgonya</good>
+        <good>saláta</good>
+        <good>mángold</good>
+        <good>tök</good>
+        <good>cékla</good>
+        <good>zeller</good>
+        <good>spenót</good>
+        <good>paradicsom</good>
+        <good>dinnye</good>
+        <good>sárgarépa</good>
+        <good>uborka</good>
+        <good>brokkoli</good>
+        <good>cukkíni</good>
+        <good>futóbab</good>
+        <good>rebarbara</good>
+        <good>kapor</good>
+        <good>üröm</good>
+        <good>borágó</good>
+        <good>kamilla</good>
+        <good>kakukkfű</good>
+        <good>zsálya</good>
+        <good>bazsalikom</good>
+        <good>menta</good>
+        <good>koriander</good>
+        <good>rozmaring</good>
+        <good>borsikafű (csombor)</good>
+        <good>sarkantyúvirág</good>
+        <good>cickafark</good>
+        <bad>eper</bad>
+        <bad>mustár</bad>
+        <bad>fokhagyma</bad>
+        <bad>hagyma</bad>
+        <bad>petrezselyem</bad>
+    </plant>
+    <plant name="karalábé">
+        <good>bokorbab</good>
+        <good>borsó</good>
+        <good>burgonya</good>
+        <good>retek</good>
+        <good>cékla</good>
+        <good>fejes saláta</good>
+        <good>zeller</good>
+        <good>spenót</good>
+        <good>póréhagyma</good>
+        <good>borágó</good>
+        <good>bazsalikom</good>
+        <good>rozmaring</good>
+        <bad>paprika</bad>
+        <bad>paradicsom</bad>
+        <bad>hagyma</bad>
+        <bad>futóbab</bad>
+        <bad>édes kömény</bad>
+    </plant>
+    <plant name="kukorica">
+        <good>bokorbab</good>
+        <good>uborka</good>
+        <good>burgonya</good>
+        <good>sütőtök dinnye</good>
+        <good>paradicsom</good>
+        <good>cukkíni</good>
+        <good>patiszon</good>
+        <good>napraforgó</good>
+        <good>borsó</good>
+        <good>futóbab</good>
+        <good>spenót</good>
+        <good>tök</good>
+        <good>kapor</good>
+        <good>muskátli</good>
+        <good>facélia</good>
+        <bad>cékla</bad>
+        <bad>zeller</bad>
+        <bad>saláta</bad>
+        <bad>sárgarépa</bad>
+        <bad>menta</bad>
+        <bad>rozmaring</bad>
+    </plant>
+    <plant name="napraforgó">
+        <good>uborka</good>
+        <good>tök</good>
+        <good>kukorica</good>
+        <good>bokorbab</good>
+        <good>futóbab</good>
+        <good>csemegekukorica</good>
+        <good>cickafark</good>
+        <bad>burgonya</bad>
+        <bad>saláta</bad>
+    </plant>
+    <plant name="paradicsom">
+        <good>zeller</good>
+        <good>fokhagyma</good>
+        <good>bokorbab</good>
+        <good>padlizsán</good>
+        <good>póréhagyma</good>
+        <good>retek</good>
+        <good>káposztafélék</good>
+        <good>spenót</good>
+        <good>hagyma</good>
+        <good>fejes saláta</good>
+        <good>sárgarépa</good>
+        <good>paprika</good>
+        <good>metélőhagyma</good>
+        <good>spárga</good>
+        <good>kelkáposzta</good>
+        <good>brokkoli</good>
+        <good>tépősaláta</good>
+        <good>zsálya</good>
+        <good>bazsalikom</good>
+        <good>borágó</good>
+        <good>menta</good>
+        <good>citromfű</good>
+        <good>rozmaring</good>
+        <good>csalán</good>
+        <good>petrezselyem</good>
+        <good>büdöske</good>
+        <good>petúnia</good>
+        <good>sarkantyúvirág</good>
+        <good>körömvirág</good>
+        <good>rézvirág</good>
+        <bad>borsó</bad>
+        <bad>burgonya</bad>
+        <bad>cukorrépa</bad>
+        <bad>uborka</bad>
+        <bad>futóbab</bad>
+        <bad>cékla</bad>
+        <bad>cukkíni</bad>
+        <bad>karfiol</bad>
+        <bad>kelbimbó</bad>
+        <bad>karalábé</bad>
+        <bad>kapor</bad>
+        <bad>kömény</bad>
+        <bad>édeskömény</bad>
+        <bad>diófa</bad>
+        <bad>őszi és sárgabarack fa</bad>
+    </plant>
+    <plant name="póréhagyma">
+        <good>eper</good>
+        <good>hagyma</good>
+        <good>retek karalábé</good>
+        <good>fejes saláta</good>
+        <good>sárgarépa</good>
+        <good>zeller</good>
+        <good>paradicsom</good>
+        <good>spárga</good>
+        <good>spenót</good>
+        <good>endívia</good>
+        <good>burgonya</good>
+        <good>fekete gyökér</good>
+        <good>kamilla</good>
+        <good>petrezselyem</good>
+        <good>édes kömény</good>
+        <bad>bokorbab</bad>
+        <bad>borsó</bad>
+        <bad>cékla</bad>
+        <bad>káposzta</bad>
+    </plant>
+    <plant name="sárgarépa">
+        <good>borsó</good>
+        <good>retek</good>
+        <good>spárga fokhagyma</good>
+        <good>mángold</good>
+        <good>póréhagyma</good>
+        <good>uborka</good>
+        <good>metélőhagyma</good>
+        <good>saláta</good>
+        <good>paprika</good>
+        <good>mogyoróhagyma</good>
+        <good>paradicsom</good>
+        <good>hagymák</good>
+        <good>bokorbab káposztafélék</good>
+        <good>bokorbab</good>
+        <good>rozmaring</good>
+        <good>zsálya</good>
+        <good>menta</good>
+        <good>turbolya</good>
+        <good>petrezselyem</good>
+        <good>kapor</good>
+        <bad>cékla</bad>
+        <bad>cukorrépa</bad>
+        <bad>zeller</bad>
+        <bad>kukorica</bad>
+        <bad>csemegekukorica</bad>
+        <bad>kömény</bad>
+        <bad>ánizs</bad>
+        <bad>kapor</bad>
+    </plant>
+    <plant name="spenót">
+        <good>eper</good>
+        <good>burgonya</good>
+        <good>zeller káposztafélék</good>
+        <good>borsó</good>
+        <good>karalábé</good>
+        <good>retek</good>
+        <good>karósbab</good>
+        <good>padlizsán paradicsom</good>
+        <good>hagyma</good>
+        <good>póréhagyma</good>
+        <good>karfiol</good>
+        <good>bokorbab</good>
+        <good>kukorica</good>
+        <good>csemegekukorica</good>
+        <good>káposzta</good>
+        <bad>cukorrépa</bad>
+        <bad>cékla</bad>
+    </plant>
+    <plant name="patiszon">
+        <good>saláta</good>
+        <good>kukorica</good>
+        <good>dinnye</good>
+        <good>csemegekukorica</good>
+        <good>lóbab</good>
+        <good>bazsalikom</good>
+        <good>sarkantyúvirág</good>
+        <good>petúnia</good>
+        <bad>burgonya</bad>
+        <bad>retek</bad>
+    </plant>
+    <plant name="eper">
+        <good>bokorbab</good>
+        <good>futóbab</good>
+        <good>fokhagyma</good>
+        <good>fejes saláta</good>
+        <good>póréhagyma</good>
+        <good>hónapos retek</good>
+        <good>spenót</good>
+        <good>hagyma</good>
+        <good>metélőhagyma</good>
+        <good>borágó</good>
+        <good>zsálya</good>
+        <good>körömvirág</good>
+        <good>csalán</good>
+        <bad>káposztafélék</bad>
+        <bad>brokkoli</bad>
+        <bad>karfiol</bad>
+        <bad>kelbimbó</bad>
+        <bad>káposzta</bad>
+    </plant>
+    <plant name="torma">
+        <good>burgonya</good>
+        <good>gyümölcsfák (körtefa</good>
+        <good>almafa</good>
+        <good>diófa</good>
+        <good>őszibarack fa</good>
+        <good>sárgabarack fa)</good>
+    </plant>
+    <plant name="uborka">
+        <good>káposztafélék</good>
+        <good>cékla</good>
+        <good>napraforgó</good>
+        <good>zeller</good>
+        <good>bokorbab</good>
+        <good>saláta</good>
+        <good>kukorica</good>
+        <good>hagyma</good>
+        <good>sárgarépa</good>
+        <good>borsó</good>
+        <good>brokkoli</good>
+        <good>karfiol</good>
+        <good>leveles kel</good>
+        <good>futóbab</good>
+        <good>fokhagyma</good>
+        <good>metélőhagyma</good>
+        <good>csemegekukorica</good>
+        <good>káposzta</good>
+        <good>kapor</good>
+        <good>bazsalikom</good>
+        <good>koriander</good>
+        <good>borsikafű (csombor)</good>
+        <good>édeskömény</good>
+        <good>kömény</good>
+        <good>rozmaring</good>
+        <good>büdöske</good>
+        <good>sarkantyúvirág</good>
+        <good>petúnia</good>
+        <bad>paradicsom</bad>
+        <bad>burgonya</bad>
+        <bad>dinnye</bad>
+        <bad>retek</bad>
+        <bad>zsálya</bad>
+        <bad>izsóp</bad>
+    </plant>
+    <plant name="zeller">
+        <good>káposztafélék</good>
+        <good>cékla</good>
+        <good>karalábé</good>
+        <good>fokhagyma</good>
+        <good>uborka</good>
+        <good>bokorbab</good>
+        <good>spenót</good>
+        <good>póréhagyma</good>
+        <good>borsó</good>
+        <good>paradicsom</good>
+        <good>retek</good>
+        <good>kínai káposzta</good>
+        <good>karfiol</good>
+        <good>káposzta</good>
+        <good>kelbimbó</good>
+        <good>hagyma</good>
+        <good>édeskömény</good>
+        <good>kamilla</good>
+        <good>sarkantyúvirág</good>
+        <bad>saláta</bad>
+        <bad>burgonya</bad>
+        <bad>kukorica</bad>
+        <bad>petrezselyem</bad>
+        <bad>sárgarépa</bad>
+    </plant>
+    <plant name="cukorrépa">
+        <good>zeller</good>
+        <good>káposzta</good>
+        <good>saláta</good>
+        <good>hagyma</good>
+        <good>retek</good>
+        <good>fokhagyma</good>
+        <good>cickafark</good>
+        <bad>bokorbab</bad>
+        <bad>spenót</bad>
+        <bad>spárga</bad>
+        <bad>sárgarépa</bad>
+        <bad>paradicsom</bad>
+    </plant>
+    <plant name="tök">
+        <good>bokorbab</good>
+        <good>saláta</good>
+        <good>hagyma</good>
+        <good>borsó</good>
+        <good>csemegekukorica</good>
+        <good>kukorica</good>
+        <good>napraforgó</good>
+        <good>dinnye</good>
+        <good>retek</good>
+        <good>káposztafélék</good>
+        <good>menta</good>
+        <good>borágó</good>
+        <good>rozmaring</good>
+        <good>sarkantyúvirág</good>
+        <good>petúnia</good>
+        <bad>burgonya</bad>
+    </plant>
+    <plant name="paprika">
+        <good>padlizsán</good>
+        <good>hagyma</good>
+        <good>paradicsom</good>
+        <good>sárgarépa</good>
+        <good>fokhagyma</good>
+        <good>bokorbab</good>
+        <good>oregánó</good>
+        <good>majoránna</good>
+        <good>bazsalikom</good>
+        <good>rézvirág</good>
+        <good>büdöske</good>
+        <good>muskátli</good>
+        <bad>karalábé</bad>
+        <bad>édeskömény</bad>
+        <bad>diófa</bad>
+    </plant>
+    <plant name="padlizsán">
+        <good>paprika</good>
+        <good>bokorbab</good>
+        <good>borsó</good>
+        <good>paradicsom</good>
+        <good>spenót</good>
+        <good>fokhagyma</good>
+        <good>futóbab</good>
+        <good>kakukkfű</good>
+        <good>tárkony</good>
+        <good>menta</good>
+        <good>petrezselyem</good>
+        <good>büdöske</good>
+        <bad>burgonya</bad>
+        <bad>sárgabarack fa</bad>
+        <bad>kerti ruta</bad>
+    </plant>
+    <plant name="karfiol">
+        <good>bokorbab</good>
+        <good>cékla</good>
+        <good>burgonya</good>
+        <good>zeller</good>
+        <good>hagyma</good>
+        <good>fokhagyma</good>
+        <good>retek</good>
+        <good>spenót</good>
+        <good>uborka</good>
+        <good>saláta</good>
+        <good>kapor</good>
+        <good>rozmaring</good>
+        <good>izsóp</good>
+        <good>kakukkfű</good>
+        <good>kamilla</good>
+        <good>menta</good>
+        <good>bazsalikom</good>
+        <good>zsálya</good>
+        <good>büdöske</good>
+        <good>sarkantyúvirág</good>
+        <bad>paradicsom</bad>
+        <bad>eper</bad>
+        <bad>szőlő</bad>
+        <bad>kerti ruta</bad>
+    </plant>
+    <plant name="dinnye">
+        <good>káposztafélék</good>
+        <good>tök</good>
+        <good>kukorica</good>
+        <good>retek</good>
+        <good>patiszon</good>
+        <good>csemegekukorica</good>
+        <good>sarkantyúvirág</good>
+        <good>petúnia</good>
+        <good>büdöske</good>
+        <bad>uborka</bad>
+    </plant>
+    <plant name="futóbab (karósbab)">
+        <good>káposztafélék</good>
+        <good>retek</good>
+        <good>kukorica</good>
+        <good>sárgarépa</good>
+        <good>spenót</good>
+        <good>endívia</good>
+        <good>eper</good>
+        <good>brokkoli</good>
+        <good>uborka</good>
+        <good>kínai káposzta</good>
+        <good>káposzta</good>
+        <good>burgonya</good>
+        <good>csemegekukorica</good>
+        <good>saláta</good>
+        <good>padlizsán</good>
+        <good>cukkíni</good>
+        <good>napraforgó</good>
+        <good>rozmaring</good>
+        <good>bazsalikom</good>
+        <good>borsfű</good>
+        <good>borágó</good>
+        <good>menta</good>
+        <good>sarkantyúvirág</good>
+        <good>büdöske</good>
+        <good>szagos bükköny</good>
+        <good>petúnia</good>
+        <good>rézvirág</good>
+        <bad>mogyoróhagyma</bad>
+        <bad>fokhagyma</bad>
+        <bad>édeskömény</bad>
+        <bad>paradicsom</bad>
+        <bad>szőlő</bad>
+        <bad>karalábé</bad>
+        <bad>hagyma</bad>
+        <bad>cékla</bad>
+        <bad>petrezselyem</bad>
+    </plant>
+    <plant name="spárga">
+        <good>sárgarépa</good>
+        <good>paradicsom</good>
+        <good>articsóka</good>
+        <good>borsó</good>
+        <good>póréhagyma</good>
+        <good>édeskömény</good>
+        <good>petrezselyem</good>
+        <good>bazsalikom</good>
+        <good>őszibarack fa</good>
+        <good>petúnia</good>
+        <bad>fokhagyma</bad>
+        <bad>cukorrépa</bad>
+        <bad>hagyma</bad>
+        <bad>cékla</bad>
+    </plant>
+    <plant name="brokkoli">
+        <good>paradicsom</good>
+        <good>retek</good>
+        <good>káposztafélék</good>
+        <good>saláta</good>
+        <good>uborka</good>
+        <good>bokorbab</good>
+        <good>burgonya</good>
+        <good>fokhagyma</good>
+        <good>hagyma</good>
+        <good>futóbab</good>
+        <good>rozmaring</good>
+        <good>kapor</good>
+        <good>kakukkfű</good>
+        <good>zsálya</good>
+        <good>bazsalikom</good>
+        <good>menta</good>
+        <good>izsóp</good>
+        <good>büdöske</good>
+        <good>sarkantyúvirág</good>
+        <bad>eper</bad>
+        <bad>szőlő</bad>
+    </plant>
+    <plant name="kelbimbó">
+        <good>fehérrépa</good>
+        <good>cékla</good>
+        <good>fokhagyma</good>
+        <good>zeller</good>
+        <good>bokorbab</good>
+        <good>saláta</good>
+        <good>burgonya</good>
+        <good>hagyma</good>
+        <good>kapor</good>
+        <good>kamilla</good>
+        <good>rozmaring</good>
+        <good>izsóp</good>
+        <good>bazsalikom</good>
+        <good>menta</good>
+        <good>kakukkfű</good>
+        <good>zsálya</good>
+        <good>sarkantyúvirág</good>
+        <bad>paradicsom</bad>
+        <bad>borsó</bad>
+        <bad>kerti ruta</bad>
+        <bad>szőlő</bad>
+        <bad>eper</bad>
+    </plant>
+    <plant name="metélőhagyma">
+        <good>sárgarépa</good>
+        <good>eper</good>
+        <good>uborka</good>
+        <good>paradicsom</good>
+        <good>saláta</good>
+        <good>cikória</good>
+        <good>kamilla</good>
+        <good>kapor</good>
+        <good>borsikafű (csombor)</good>
+        <good>ánizs</good>
+        <good>bazsalikom</good>
+        <good>rózsa</good>
+        <good>szőlő</good>
+        <good>almafa</good>
+        <bad>bokorbab</bad>
+        <bad>borsó</bad>
+    </plant>
+    <plant name="petrezselyem">
+        <good>póréhagyma</good>
+        <good>retek</good>
+        <good>paradicsom</good>
+        <good>spárga</good>
+        <good>hagyma</good>
+        <good>padlizsán</good>
+        <good>sárgarépa</good>
+        <good>rozmaring</good>
+        <good>büdöske</good>
+        <good>rózsa</good>
+        <bad>káposztafélék</bad>
+        <bad>zeller</bad>
+        <bad>bokorbab</bad>
+        <bad>saláta</bad>
+        <bad>futóbab</bad>
+        <bad>káposzta</bad>
+        <bad>borsó </bad>
+        <bad>menta</bad>
+    </plant>
+    <plant name="káposzta">
+        <good>burgonya</good>
+        <good>spenót</good>
+        <good>futóbab</good>
+        <good>zeller</good>
+        <good>cékla</good>
+        <good>cukorrépa</good>
+        <good>uborka</good>
+        <good>bokorbab</good>
+        <good>saláta</good>
+        <good>fehérrépa</good>
+        <good>borsó</good>
+        <good>fekete gyökér</good>
+        <good>mángold</good>
+        <good>rozmaring</good>
+        <good>kapor</good>
+        <good>kakukkfű</good>
+        <good>menta</good>
+        <good>zsálya</good>
+        <good>borágó</good>
+        <good>bazsalikom</good>
+        <good>izsóp</good>
+        <good>kamilla</good>
+        <good>üröm</good>
+        <good>sarkantyúvirág</good>
+        <good>büdöske</good>
+        <bad>mogyoróhagyma</bad>
+        <bad>eper</bad>
+        <bad>fokhagyma</bad>
+        <bad>póréhagyma</bad>
+        <bad>retek</bad>
+        <bad>hagyma</bad>
+        <bad>petrezselyem</bad>
+        <bad>édeskömény</bad>
+        <bad>cikória</bad>
+        <bad>szőlő</bad>
+    </plant>
+    <plant name="leveles kel (kelkáposzta)">
+        <good>bokorbab</good>
+        <good>uborka</good>
+        <good>saláta</good>
+        <good>burgonya</good>
+        <good>paradicsom</good>
+        <good>fokhagyma</good>
+        <good>hagyma</good>
+        <good>bazsalikom</good>
+        <good>izsóp</good>
+        <good>kapor</good>
+        <good>menta</good>
+        <good>rozmaring</good>
+        <good>zsálya</good>
+        <good>kakukkfű</good>
+        <good>büdöske</good>
+        <good>sarkantyúvirág</good>
+        <bad>fokhagyma</bad>
+        <bad>hagyma</bad>
+        <bad>szőlő</bad>
+        <bad>kerti ruta</bad>
+        <bad>retek</bad>
+    </plant>
+    <plant name="fehér répa">
+        <good>kelbimbó</good>
+        <good>borsó</good>
+        <good>káposzta</good>
+        <good>saláta</good>
+        <good>rozmaring</good>
+        <good>menta</good>
+        <bad>fokhagyma</bad>
+    </plant>
+    <plant name="kinai káposzta">
+        <good>bokorbab</good>
+        <good>fokhagyma</good>
+        <good>zeller</good>
+        <good>burgonya</good>
+        <good>futóbab</good>
+        <good>rozmaring</good>
+        <good>kapor</good>
+        <good>borsikafű</good>
+        <good>menta</good>
+        <good>kakukkfű</good>
+        <good>zsálya</good>
+        <good>sarkantyúvirág</good>
+        <bad>szőlő</bad>
+    </plant>
+    <plant name="kömény">
+        <good>cékla</good>
+        <good>uborka</good>
+        <good>édeskömény</good>
+        <good>a felsorolt rossz szomszédokon kívül</good>
+        <good>gyakorlatilag bárhová lehet vetni</good>
+        <good>ültetni!!</good>
+        <bad>paradicsom</bad>
+        <bad>sárgarépa</bad>
+        <bad>kapor</bad>
+    </plant>
+    <plant name="mángold">
+        <good>hagyma</good>
+        <good>bokorbab</good>
+        <good>káposztafélék</good>
+        <good>retek</good>
+        <good>sárgarépa</good>
+        <good>saláta</good>
+        <good>káposzta</good>
+        <good>cickafark</good>
+        <bad>nem ismert</bad>
+    </plant>
+    <plant name="tépősaláta">
+        <good>paradicsom</good>
+        <good>cékla</good>
+        <bad>nem ismert</bad>
+    </plant>
+    <plant name="pasztinák">
+        <good>retek</good>
+        <good>hagyma</good>
+        <good>lóbab</good>
+        <good>kamilla</good>
+        <bad>kapor</bad>
+    </plant>
+    <plant name="endivia">
+        <good>káposztafélék</good>
+        <good>futóbab</good>
+        <good>póréhagyma</good>
+        <good>édes kömény</good>
+        <bad>nem ismert</bad>
+    </plant>
+    <plant name="csemegekukorica">
+        <good>uborka</good>
+        <good>borsó</good>
+        <good>futóbab</good>
+        <good>bokorbab</good>
+        <good>spenót</good>
+        <good>tök</good>
+        <good>cukkíni</good>
+        <good>patiszon</good>
+        <good>napraforgó</good>
+        <good>dinnye</good>
+        <good>facélia</good>
+        <good>kapor</good>
+        <good>muskátli</good>
+        <bad>saláta</bad>
+        <bad>sárgarépa</bad>
+        <bad>burgonya</bad>
+        <bad>zeller</bad>
+        <bad>menta</bad>
+        <bad>rozmaring</bad>
+    </plant>
+    <plant name="édeskömény">
+        <good>saláta</good>
+        <good>uborka</good>
+        <good>endívia</good>
+        <good>póréhagyma</good>
+        <good>hagyma</good>
+        <good>zeller</good>
+        <good>spárga</good>
+        <good>zsálya</good>
+        <good>kapor</good>
+        <good>kömény</good>
+        <good>cickafark</good>
+        <bad>paradicsom</bad>
+        <bad>kapor</bad>
+        <bad>borsó</bad>
+        <bad>káposzta</bad>
+        <bad>karalábé</bad>
+        <bad>futó-és bokorbab</bad>
+        <bad>paradicsom</bad>
+        <bad>paprika</bad>
+        <bad>koriander</bad>
+    </plant>
+    <plant name="fekete gyökér">
+        <good>retek</good>
+        <good>káposzta</good>
+        <good>saláta</good>
+        <good>póréhagyma</good>
+        <good>bokorbab</good>
+    </plant>
+    <plant name="lóbab">
+        <good>pasztinák</good>
+        <good>burgonya</good>
+        <good>rézvirág</good>
+        <good>cickafark</good>
+        <bad>fejes saláta</bad>
+    </plant>
+    <plant name="bazsalikom">
+        <good>kelbimbó</good>
+        <good>futóbab</good>
+        <good>bokorbab</good>
+        <good>hagyma</good>
+        <good>káposztafélék</good>
+        <good>patiszon</good>
+        <good>brokkoli</good>
+        <good>káposzta</good>
+        <good>karfiol</good>
+        <good>leveles kel</good>
+        <good>paprika</good>
+        <good>paradicsom</good>
+        <good>karalábé</good>
+        <good>metélőhagyma</good>
+        <good>uborka</good>
+        <good>spárga</good>
+        <good>oregánó</good>
+        <good>büdöske</good>
+        <good>petúnia</good>
+        <bad>kerti ruta</bad>
+        <bad>rozmaring</bad>
+        <bad>kamilla</bad>
+        <bad>ánizs</bad>
+    </plant>
+    <plant name="borágó">
+        <good>bokorbab</good>
+        <good>káposztafélék</good>
+        <good>cukkíni</good>
+        <good>tök</good>
+        <good>eper</good>
+        <good>paradicsom</good>
+        <good>káposzta</good>
+        <good>karalábé</good>
+        <good>futóbab</good>
+        <good>cickafarok</good>
+    </plant>
+    <plant name="menta">
+        <good>futóbab</good>
+        <good>káposzta</good>
+        <good>fehérrépa</good>
+        <good>kelbimbó</good>
+        <good>padlizsán</good>
+        <good>brokkoli</good>
+        <good>bokorbab</good>
+        <good>borsó</good>
+        <good>burgonya</good>
+        <good>saláta</good>
+        <good>retek</good>
+        <good>káposztafélék</good>
+        <good>sárgarépa</good>
+        <good>tök</good>
+        <good>kínai káposzta</good>
+        <good>leveles kel karfiol</good>
+        <good>paradicsom</good>
+        <good>gyümölcsfák</good>
+        <bad>petrezselyem</bad>
+        <bad>kukorica</bad>
+        <bad>csemegekukorica</bad>
+    </plant>
+    <plant name="izsóp">
+        <good>brokkoli</good>
+        <good>kelbimbó</good>
+        <good>káposzta</good>
+        <good>karfiol</good>
+        <good>kínai káposzta</good>
+        <good>kelkáposzta</good>
+        <good>szőlő</good>
+        <bad>retek</bad>
+        <bad>uborka</bad>
+    </plant>
+    <plant name="rozmaring">
+        <good>bab</good>
+        <good>fokhagyma</good>
+        <good>tök</good>
+        <good>káposztafélék</good>
+        <good>saláta uborka</good>
+        <good>karalábé</good>
+        <good>sárgarépa</good>
+        <good>petrezselyem</good>
+        <good>fehérrépa</good>
+        <good>kelbimbó</good>
+        <good>káposzta</good>
+        <good>kelkáposzta</good>
+        <good>brokkoli</good>
+        <good>kínai káposzta</good>
+        <good>futóbab</good>
+        <good>bokorbab</good>
+        <good>borsó</good>
+        <good>burgonya</good>
+        <good>paradicsom</good>
+        <good>karfiol</good>
+        <good>cickafark</good>
+        <bad>bazsalikom</bad>
+        <bad>kukorica</bad>
+        <bad>csemegekukorica</bad>
+    </plant>
+    <plant name="csombor (borsikafű)">
+        <good>bokorbab</good>
+        <good>futóbab</good>
+        <good>kínai káposzta</good>
+        <good>hagyma</good>
+        <good>káposztafélék</good>
+        <good>uborka</good>
+        <good>metélőhagyma</good>
+    </plant>
+    <plant name="zsálya">
+        <good>édeskömény</good>
+        <good>karfiol</good>
+        <good>brokkoli</good>
+        <good>kelbimbó</good>
+        <good>káposzta</good>
+        <good>kelkáposzta</good>
+        <good>kínai káposzta</good>
+        <good>bokorbab</good>
+        <good>cékla</good>
+        <good>saláta</good>
+        <good>retek</good>
+        <good>káposztafélék</good>
+        <good>paradicsom</good>
+        <good>sárgarépa</good>
+        <good>eper</good>
+        <bad>hagyma</bad>
+        <bad>uborka</bad>
+    </plant>
+    <plant name="citromfű">
+        <good>paradicsom</good>
+    </plant>
+    <plant name="tárkony">
+        <good>padlizsán</good>
+    </plant>
+    <plant name="mogyoróhagyma">
+        <good>saláta</good>
+        <good>sárgarépa</good>
+        <bad>bokorbab</bad>
+        <bad>futóbab</bad>
+        <bad>káposzta</bad>
+    </plant>
+    <plant name="kakukkfű">
+        <good>káposztafélék</good>
+        <good>padlizsán</good>
+        <good>karfiol</good>
+        <good>brokkoli</good>
+        <good>kelbimbó</good>
+        <good>káposzta</good>
+        <good>kelkáposzta</good>
+        <good>kínai káposzta</good>
+    </plant>
+    <plant name="cikória">
+        <good>metélőhagyma</good>
+        <bad>káposzta</bad>
+    </plant>
+    <plant name="szőlő">
+        <good>fokhagyma</good>
+        <good>retek</good>
+        <good>metélőhagyma</good>
+        <good>izsóp</good>
+        <bad>bokorbab</bad>
+        <bad>borsó</bad>
+        <bad>karfiol</bad>
+        <bad>futóbab</bad>
+        <bad>brokkoli</bad>
+        <bad>kelbimbó</bad>
+        <bad>kelkáposzta</bad>
+        <bad>kínai káposzta</bad>
+    </plant>
+    <plant name="üröm">
+        <good>káposzta és káposztafélék</good>
+    </plant>
+    <plant name="kapor">
+        <good>cékla</good>
+        <good>metélőhagyma</good>
+        <good>brokkoli</good>
+        <good>kelbimbó</good>
+        <good>káposzta</good>
+        <good>kelkáposzta</good>
+        <good>kínai káposzta</good>
+        <good>borsó</good>
+        <good>uborka</good>
+        <good>saláta</good>
+        <good>hagyma</good>
+        <good>káposztafélék</good>
+        <good>kukorica</good>
+        <good>sárgarépa</good>
+        <good>karfiol</good>
+        <bad>paradicsom</bad>
+        <bad>kömény</bad>
+        <bad>pasztinák</bad>
+        <bad>édes kömény</bad>
+    </plant>
+    <plant name="csicsóka">
+        <good>burgonya</good>
+    </plant>
+    <plant name="kamilla">
+        <good>burgonya</good>
+        <good>fokhagyma</good>
+        <good>hagyma</good>
+        <good>káposztafélék</good>
+        <good>póréhagyma</good>
+        <good>zeller</good>
+        <good>karfiol</good>
+        <good>kelbimbó</good>
+        <good>metélőhagyma</good>
+        <good>káposzta</good>
+        <good>pasztinák</good>
+        <bad>bazsalikom</bad>
+    </plant>
+    <plant name="mustár">
+        <bad>káposztafélék</bad>
+    </plant>
+    <plant name="ánizs">
+        <good>burgonya</good>
+        <good>metélőhagyma</good>
+        <bad>sárgarépa</bad>
+        <bad>bazsalikom</bad>
+    </plant>
+    <plant name="koriander">
+        <good>burgonya</good>
+        <good>cékla</good>
+        <good>káposztafélék</good>
+        <good>uborka</good>
+        <bad>édes kömény</bad>
+    </plant>
+    <plant name="len">
+        <good>burgonya</good>
+    </plant>
+    <plant name="csalán">
+        <good>burgonya</good>
+        <good>paradicsom</good>
+        <good>eper</good>
+    </plant>
+    <plant name="facélia">
+        <good>csemegekukorica</good>
+    </plant>
+    <plant name="körtefa">
+        <good>fokhagyma</good>
+        <good>torma</good>
+        <good>körömvirág</good>
+        <good>kerti zsázsa</good>
+        <good>sarkantyúvirág</good>
+        <good>menta</good>
+        <bad>burgonya</bad>
+    </plant>
+    <plant name="diófa">
+        <good>torma</good>
+        <good>körömvirág</good>
+        <bad>burgonya</bad>
+        <bad>paprika</bad>
+        <bad>paradicsom</bad>
+    </plant>
+    <plant name="málna">
+        <good>fokhagyma</good>
+        <bad>burgonya</bad>
+    </plant>
+    <plant name="almafa">
+        <good>fokhagyma</good>
+        <good>torma</good>
+        <good>metélőhagyma</good>
+        <good>körömvirág</good>
+        <good>kerti zsázsa</good>
+        <good>sarkantyúvirág</good>
+        <good>menta</good>
+        <bad>burgonya</bad>
+    </plant>
+    <plant name="őszibarack fa">
+        <good>fokhagyma</good>
+        <good>torma</good>
+        <good>spárga</good>
+        <good>körömvirág</good>
+        <good>kerti zsázsa</good>
+        <good>sarkantyúvirág</good>
+        <good>menta</good>
+        <bad>burgonya</bad>
+        <bad>paradicsom</bad>
+    </plant>
+    <plant name="sárgabarack fa">
+        <good>fokhagyma</good>
+        <good>torma</good>
+        <good>körömvirág</good>
+        <good>kerti zsázsa</good>
+        <good>sarkantyúvirág</good>
+        <good>menta</good>
+        <bad>burgonya</bad>
+        <bad>paradicsom</bad>
+        <bad>padlizsán</bad>
+    </plant>
+    <plant name="articsóka">
+        <good>saláta</good>
+        <good>spárga</good>
+    </plant>
+    <plant name="turbolya">
+        <good>saláta</good>
+        <good>retek</good>
+        <good>sárgarépa</good>
+    </plant>
+    <plant name="karotta">
+        <good>hagyma</good>
+    </plant>
+    <plant name="majoranna">
+        <good>hagyma</good>
+        <good>paprika</good>
+    </plant>
+    <plant name="kerti ruta">
+        <bad>hagyma</bad>
+        <bad>karfiol</bad>
+        <bad>kelbimbó</bad>
+        <bad>kelkáposzta</bad>
+        <bad>bazsalikom</bad>
+        <bad>padlizsán</bad>
+    </plant>
+    <plant name="kerti zsázsa">
+        <good>retek</good>
+        <good>gyümölcsfák</good>
+    </plant>
+    <plant name="rebarbara">
+        <good>káposztafélék</good>
+    </plant>
+    <plant name="oregánó">
+        <good>paprika</good>
+        <good>bazsalikom</good>
+    </plant>
+</xml>
