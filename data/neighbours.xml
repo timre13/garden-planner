@@ -1,5 +1,7 @@
-<xml>
-    <plant name="bokorbab">
+<xml
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="scheme.xsd">
+    <plant name="bokorbab" sortav="45" totav="10">
         <good>eper</good>
         <good>uborka</good>
         <good>tök</good>
@@ -47,7 +49,7 @@
         <bad>metélőhagyma</bad>
         <bad>szőlő</bad>
     </plant>
-    <plant name="borsó">
+    <plant name="borsó" sortav="25" totav="5">
         <good>kapor</good>
         <good>uborka</good>
         <good>tök</good>
@@ -80,7 +82,7 @@
         <bad>kelbimbó</bad>
         <bad>édeskömény</bad>
     </plant>
-    <plant name="burgonya">
+    <plant name="burgonya" sortav="70" totav="35">
         <good>kései káposztafélék</good>
         <good>karalábé</good>
         <good>kukorica</good>
@@ -127,7 +129,7 @@
         <bad>almafa</bad>
         <bad>őszi és sárgabarack fa</bad>
     </plant>
-    <plant name="cékla">
+    <plant name="cékla" sortav="45" totav="15">
         <good>bokorbab</good>
         <good>kapor</good>
         <good>uborka</good>
@@ -154,7 +156,7 @@
         <bad>paradicsom</bad>
         <bad>sárgarépa</bad>
     </plant>
-    <plant name="cukkini">
+    <plant name="cukkini" sortav="50" totav="100">
         <good>kukorica</good>
         <good>cékla</good>
         <good>karósbab</good>
@@ -169,7 +171,7 @@
         <good>petúnia</good>
         <bad>paradicsom</bad>
     </plant>
-    <plant name="fejes saláta">
+    <plant name="fejes saláta" sortav="30" totav="30">
         <good>futóbab</good>
         <good>eper</good>
         <good>uborka</good>
@@ -212,7 +214,7 @@
         <bad>napraforgó</bad>
         <bad>kukorica</bad>
     </plant>
-    <plant name="fokhagyma">
+    <plant name="fokhagyma" sortav="30" totav="15">
         <good>eper</good>
         <good>uborka</good>
         <good>cékla</good>
@@ -251,7 +253,7 @@
         <bad>fehérrépa</bad>
         <bad>káposzta</bad>
     </plant>
-    <plant name="hagyma">
+    <plant name="hagyma" sortav="30" totav="15">
         <good>eper</good>
         <good>uborka</good>
         <good>fejes saláta</good>
@@ -292,7 +294,7 @@
         <bad>kerti ruta</bad>
         <bad>zsálya</bad>
     </plant>
-    <plant name="hónapos retek">
+    <plant name="hónapos retek" sortav="30" totav="15">
         <good>bokorbab</good>
         <good>borsó</good>
         <good>karalábé</good>
@@ -327,7 +329,7 @@
         <bad>kelkáposzta</bad>
         <bad>izsóp</bad>
     </plant>
-    <plant name="káposzta félék">
+    <plant name="káposzta félék" sortav="70" totav="50">
         <good>bokorbab</good>
         <good>endívia</good>
         <good>borsó</good>
@@ -365,7 +367,7 @@
         <bad>hagyma</bad>
         <bad>petrezselyem</bad>
     </plant>
-    <plant name="karalábé">
+    <plant name="karalábé" sortav="30" totav="50">
         <good>bokorbab</good>
         <good>borsó</good>
         <good>burgonya</good>
@@ -384,7 +386,7 @@
         <bad>futóbab</bad>
         <bad>édes kömény</bad>
     </plant>
-    <plant name="kukorica">
+    <plant name="kukorica" sortav="80" totav="20">
         <good>bokorbab</good>
         <good>uborka</good>
         <good>burgonya</good>
@@ -407,7 +409,7 @@
         <bad>menta</bad>
         <bad>rozmaring</bad>
     </plant>
-    <plant name="napraforgó">
+    <plant name="napraforgó" sortav="75" totav="30">
         <good>uborka</good>
         <good>tök</good>
         <good>kukorica</good>
@@ -418,7 +420,7 @@
         <bad>burgonya</bad>
         <bad>saláta</bad>
     </plant>
-    <plant name="paradicsom">
+    <plant name="paradicsom" sortav="40" totav="30">
         <good>zeller</good>
         <good>fokhagyma</good>
         <good>bokorbab</good>
@@ -465,7 +467,7 @@
         <bad>diófa</bad>
         <bad>őszi és sárgabarack fa</bad>
     </plant>
-    <plant name="póréhagyma">
+    <plant name="póréhagyma" sortav="35" totav="10">
         <good>eper</good>
         <good>hagyma</good>
         <good>retek karalábé</good>
@@ -486,7 +488,7 @@
         <bad>cékla</bad>
         <bad>káposzta</bad>
     </plant>
-    <plant name="sárgarépa">
+    <plant name="sárgarépa" sortav="30" totav="5">
         <good>borsó</good>
         <good>retek</good>
         <good>spárga fokhagyma</good>
@@ -516,7 +518,7 @@
         <bad>ánizs</bad>
         <bad>kapor</bad>
     </plant>
-    <plant name="spenót">
+    <plant name="spenót" sortav="20" totav="10">
         <good>eper</good>
         <good>burgonya</good>
         <good>zeller káposztafélék</good>
@@ -535,7 +537,7 @@
         <bad>cukorrépa</bad>
         <bad>cékla</bad>
     </plant>
-    <plant name="patiszon">
+    <plant name="patiszon" sortav="100" totav="80">
         <good>saláta</good>
         <good>kukorica</good>
         <good>dinnye</good>
@@ -547,7 +549,7 @@
         <bad>burgonya</bad>
         <bad>retek</bad>
     </plant>
-    <plant name="eper">
+    <plant name="eper" sortav="30" totav="35">
         <good>bokorbab</good>
         <good>futóbab</good>
         <good>fokhagyma</good>
@@ -567,7 +569,7 @@
         <bad>kelbimbó</bad>
         <bad>káposzta</bad>
     </plant>
-    <plant name="torma">
+    <plant name="torma" sortav="40" totav="30">
         <good>burgonya</good>
         <good>gyümölcsfák (körtefa</good>
         <good>almafa</good>
@@ -575,7 +577,7 @@
         <good>őszibarack fa</good>
         <good>sárgabarack fa)</good>
     </plant>
-    <plant name="uborka">
+    <plant name="uborka" sortav="150" totav="25">
         <good>káposztafélék</good>
         <good>cékla</good>
         <good>napraforgó</good>
@@ -611,7 +613,7 @@
         <bad>zsálya</bad>
         <bad>izsóp</bad>
     </plant>
-    <plant name="zeller">
+    <plant name="zeller" sortav="40" totav="40">
         <good>káposztafélék</good>
         <good>cékla</good>
         <good>karalábé</good>
@@ -637,7 +639,7 @@
         <bad>petrezselyem</bad>
         <bad>sárgarépa</bad>
     </plant>
-    <plant name="cukorrépa">
+    <plant name="cukorrépa" sortav="45" totav="20">
         <good>zeller</good>
         <good>káposzta</good>
         <good>saláta</good>
@@ -651,7 +653,7 @@
         <bad>sárgarépa</bad>
         <bad>paradicsom</bad>
     </plant>
-    <plant name="tök">
+    <plant name="tök" sortav="200" totav="200">
         <good>bokorbab</good>
         <good>saláta</good>
         <good>hagyma</good>
@@ -669,7 +671,7 @@
         <good>petúnia</good>
         <bad>burgonya</bad>
     </plant>
-    <plant name="paprika">
+    <plant name="paprika" sortav="30" totav="30">
         <good>padlizsán</good>
         <good>hagyma</good>
         <good>paradicsom</good>
@@ -686,7 +688,7 @@
         <bad>édeskömény</bad>
         <bad>diófa</bad>
     </plant>
-    <plant name="padlizsán">
+    <plant name="padlizsán" sortav="40" totav="40">
         <good>paprika</good>
         <good>bokorbab</good>
         <good>borsó</good>
@@ -703,7 +705,7 @@
         <bad>sárgabarack fa</bad>
         <bad>kerti ruta</bad>
     </plant>
-    <plant name="karfiol">
+    <plant name="karfiol" sortav="60" totav="40">
         <good>bokorbab</good>
         <good>cékla</good>
         <good>burgonya</good>
@@ -729,7 +731,7 @@
         <bad>szőlő</bad>
         <bad>kerti ruta</bad>
     </plant>
-    <plant name="dinnye">
+    <plant name="dinnye" sortav="150" totav="100">
         <good>káposztafélék</good>
         <good>tök</good>
         <good>kukorica</good>
@@ -741,7 +743,7 @@
         <good>büdöske</good>
         <bad>uborka</bad>
     </plant>
-    <plant name="futóbab (karósbab)">
+    <plant name="futóbab (karósbab)" sortav="100" totav="100">
         <good>káposztafélék</good>
         <good>retek</good>
         <good>kukorica</good>
@@ -779,7 +781,7 @@
         <bad>cékla</bad>
         <bad>petrezselyem</bad>
     </plant>
-    <plant name="spárga">
+    <plant name="spárga" sortav="150" totav="35">
         <good>sárgarépa</good>
         <good>paradicsom</good>
         <good>articsóka</good>
@@ -795,7 +797,7 @@
         <bad>hagyma</bad>
         <bad>cékla</bad>
     </plant>
-    <plant name="brokkoli">
+    <plant name="brokkoli" sortav="60" totav="40">
         <good>paradicsom</good>
         <good>retek</good>
         <good>káposztafélék</good>
@@ -818,7 +820,7 @@
         <bad>eper</bad>
         <bad>szőlő</bad>
     </plant>
-    <plant name="kelbimbó">
+    <plant name="kelbimbó" sortav="60" totav="40">
         <good>fehérrépa</good>
         <good>cékla</good>
         <good>fokhagyma</good>
@@ -842,7 +844,7 @@
         <bad>szőlő</bad>
         <bad>eper</bad>
     </plant>
-    <plant name="metélőhagyma">
+    <plant name="metélőhagyma" sortav="50" totav="1">
         <good>sárgarépa</good>
         <good>eper</good>
         <good>uborka</good>
@@ -860,7 +862,7 @@
         <bad>bokorbab</bad>
         <bad>borsó</bad>
     </plant>
-    <plant name="petrezselyem">
+    <plant name="petrezselyem" sortav="25" totav="15">
         <good>póréhagyma</good>
         <good>retek</good>
         <good>paradicsom</good>
@@ -880,7 +882,7 @@
         <bad>borsó </bad>
         <bad>menta</bad>
     </plant>
-    <plant name="káposzta">
+    <plant name="káposzta" sortav="70" totav="50">
         <good>burgonya</good>
         <good>spenót</good>
         <good>futóbab</good>
@@ -917,7 +919,7 @@
         <bad>cikória</bad>
         <bad>szőlő</bad>
     </plant>
-    <plant name="leveles kel (kelkáposzta)">
+    <plant name="leveles kel (kelkáposzta)" sortav="70" totav="50">
         <good>bokorbab</good>
         <good>uborka</good>
         <good>saláta</good>
@@ -940,7 +942,7 @@
         <bad>kerti ruta</bad>
         <bad>retek</bad>
     </plant>
-    <plant name="fehér répa">
+    <plant name="fehér répa" sortav="20" totav="5">
         <good>kelbimbó</good>
         <good>borsó</good>
         <good>káposzta</good>
@@ -949,7 +951,7 @@
         <good>menta</good>
         <bad>fokhagyma</bad>
     </plant>
-    <plant name="kinai káposzta">
+    <plant name="kinai káposzta" sortav="70" totav="50">
         <good>bokorbab</good>
         <good>fokhagyma</good>
         <good>zeller</good>
@@ -964,7 +966,7 @@
         <good>sarkantyúvirág</good>
         <bad>szőlő</bad>
     </plant>
-    <plant name="kömény">
+    <plant name="kömény" sortav="40" totav="15">
         <good>cékla</good>
         <good>uborka</good>
         <good>édeskömény</good>
@@ -1005,7 +1007,7 @@
         <good>édes kömény</good>
         <bad>nem ismert</bad>
     </plant>
-    <plant name="csemegekukorica">
+    <plant name="csemegekukorica" sortav="80" totav="20">
         <good>uborka</good>
         <good>borsó</good>
         <good>futóbab</good>
@@ -1062,7 +1064,7 @@
         <good>cickafark</good>
         <bad>fejes saláta</bad>
     </plant>
-    <plant name="bazsalikom">
+    <plant name="bazsalikom" sortav="80" totav="20">
         <good>kelbimbó</good>
         <good>futóbab</good>
         <good>bokorbab</good>
@@ -1231,7 +1233,7 @@
     <plant name="üröm">
         <good>káposzta és káposztafélék</good>
     </plant>
-    <plant name="kapor">
+    <plant name="kapor" totav="15">
         <good>cékla</good>
         <good>metélőhagyma</good>
         <good>brokkoli</good>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xs:schema
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified">
+
+<xs:element name="plant">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="good" type="xs:string"/>
+      <xs:element name="bad" type="xs:string"/>
+    </xs:sequence>
+  <xs:attribute name="name" type="xs:string" use="required"/>
+  <xs:attribute name="sortav" type="xs:int" use="optional"/>
+  <xs:attribute name="totav" type="xs:int" use="optional"/>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema> 
