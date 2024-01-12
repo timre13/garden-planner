@@ -1,6 +1,4 @@
-<xml
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="scheme.xsd">
+<xml>
     <plant name="bokorbab" sortav="45" totav="10">
         <good>eper</good>
         <good>uborka</good>
