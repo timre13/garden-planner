@@ -37,7 +37,7 @@ cur.execute("""
         name TEXT UNIQUE NOT NULL,
         sortavolsag INTEGER NOT NULL,
         totavolsag INTEGER NOT NULL,
-        color STRING
+        color TEXT
     )
 """)
 

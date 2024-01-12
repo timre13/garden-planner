@@ -23,6 +23,7 @@ namespace garden_planner
         public MainWindow()
         {
             InitializeComponent();
+            Database.Close();
         }
     }
 }
