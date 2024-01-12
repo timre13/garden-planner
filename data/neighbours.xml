@@ -1028,7 +1028,7 @@ xsi:schemaLocation="scheme.xsd">
         <bad>menta</bad>
         <bad>rozmaring</bad>
     </plant>
-    <plant name="édeskömény">
+    <plant name="édeskömény" sortav="40" totav="15">
         <good>saláta</good>
         <good>uborka</good>
         <good>endívia</good>
@@ -1050,19 +1050,12 @@ xsi:schemaLocation="scheme.xsd">
         <bad>paprika</bad>
         <bad>koriander</bad>
     </plant>
-    <plant name="fekete gyökér">
+    <plant name="fekete gyökér" sortav="40" totav="8">
         <good>retek</good>
         <good>káposzta</good>
         <good>saláta</good>
         <good>póréhagyma</good>
         <good>bokorbab</good>
-    </plant>
-    <plant name="lóbab">
-        <good>pasztinák</good>
-        <good>burgonya</good>
-        <good>rézvirág</good>
-        <good>cickafark</good>
-        <bad>fejes saláta</bad>
     </plant>
     <plant name="bazsalikom" sortav="80" totav="20">
         <good>kelbimbó</good>
@@ -1089,7 +1082,7 @@ xsi:schemaLocation="scheme.xsd">
         <bad>kamilla</bad>
         <bad>ánizs</bad>
     </plant>
-    <plant name="borágó">
+    <plant name="borágó" sortav="45" totav="45">
         <good>bokorbab</good>
         <good>káposztafélék</good>
         <good>cukkíni</good>
@@ -1124,7 +1117,7 @@ xsi:schemaLocation="scheme.xsd">
         <bad>kukorica</bad>
         <bad>csemegekukorica</bad>
     </plant>
-    <plant name="izsóp">
+    <plant name="izsóp" sortav="50" totav="30">
         <good>brokkoli</good>
         <good>kelbimbó</good>
         <good>káposzta</good>
@@ -1161,7 +1154,7 @@ xsi:schemaLocation="scheme.xsd">
         <bad>kukorica</bad>
         <bad>csemegekukorica</bad>
     </plant>
-    <plant name="csombor (borsikafű)">
+    <plant name="csombor (borsikafű)" sortav="50" totav="30">
         <good>bokorbab</good>
         <good>futóbab</good>
         <good>kínai káposzta</good>
@@ -1170,7 +1163,7 @@ xsi:schemaLocation="scheme.xsd">
         <good>uborka</good>
         <good>metélőhagyma</good>
     </plant>
-    <plant name="zsálya">
+    <plant name="zsálya" sortav="60" totav="30">
         <good>édeskömény</good>
         <good>karfiol</good>
         <good>brokkoli</good>
@@ -1192,17 +1185,17 @@ xsi:schemaLocation="scheme.xsd">
     <plant name="citromfű">
         <good>paradicsom</good>
     </plant>
-    <plant name="tárkony">
+    <plant name="tárkony" sortav="60" totav="60">
         <good>padlizsán</good>
     </plant>
-    <plant name="mogyoróhagyma">
+    <plant name="mogyoróhagyma" sortav="25" totav="15">
         <good>saláta</good>
         <good>sárgarépa</good>
         <bad>bokorbab</bad>
         <bad>futóbab</bad>
         <bad>káposzta</bad>
     </plant>
-    <plant name="kakukkfű">
+    <plant name="kakukkfű" sortav="50" totav="25">
         <good>káposztafélék</good>
         <good>padlizsán</good>
         <good>karfiol</good>
