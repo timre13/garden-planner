@@ -23,7 +23,20 @@ namespace garden_planner
         public MainWindow()
         {
             InitializeComponent();
-            Database.Close();
+        }
+
+        private void Root_Loaded(object sender, RoutedEventArgs e)
+        {
+            Root.Items.Clear();
+            var plants = Database.GetAllPlantsOrdered();
+            foreach ( var plant in plants )
+            {
+                var label = new Label()
+                {
+                    Content = plant.Name,
+                };
+                Root.Items.Add( label );
+            }
         }
     }
 }
