@@ -84,9 +84,9 @@ static class Database
         return output.OrderBy(x => x.Name).ToList();
     }
 
-    public static List<long> GetGoodNeighIds(long id)
+    public static List<long> GetNeighIds(long id, bool isGoodNeigh)
     {
-        var reader = ExecReaderCmd("SELECT * FROM good_neighbours WHERE plant1 = @0 OR plant2 @0", new object[] {id});
+        var reader = ExecReaderCmd($"SELECT * FROM {(isGoodNeigh ? "good" : "bad")}_neighbours WHERE plant1 = @0 OR plant2 = @0", new object[] {id});
         List<long> output = new List<long>();
         while (reader.Read())
         {
@@ -97,9 +97,29 @@ static class Database
         }
         return output;
     }
+
+    public static List<Plant> GetNeighs(long id, bool isGoodNeigh)
+    {
+        var ids = GetNeighIds(id, isGoodNeigh)!;
+        return ids.Select(plant => GetPlantFromId(plant)).ToList();
+    }
+
+    public static bool AreBadNeighs(long id1, long id2)
+    {
+        var reader = ExecReaderCmd("SELECT 1 FROM bad_neighbours WHERE (plant1 = @0 AND plant2 = @1) " +
+            "OR (plant1 = @1 AND plant2 = @0)", new object[] { id1, id2 });
+        return reader.HasRows;
+    }
+
+    public static bool AreGoodNeighs(long id1, long id2)
+    {
+        var reader = ExecReaderCmd("SELECT 1 FROM good_neighbours WHERE (plant1 = @0 AND plant2 = @1) " +
+            "OR (plant1 = @1 AND plant2 = @0)", new object[] { id1, id2 });
+        return reader.HasRows;
+    }
 }
 
-class Plant
+public class Plant
 {
     public long Id { get; private set; }
     public string Name { get; private set; }

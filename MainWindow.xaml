@@ -7,8 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="Root" Loaded="Root_Loaded">
-            
+        <ListView x:Name="Root" Loaded="Root_Loaded" SelectionChanged="Root_SelectionChanged" SelectionMode="Single">
+            <ListView.Resources>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding bad}" Value="true">
+                            <Setter Property="Background" Value="Red"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding good}" Value="true">
+                            <Setter Property="Background" Value="Green"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding plant.Id}"/>
+                    <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding plant.Name}"/>
+                    <GridViewColumn Header="Good?" Width="Auto" DisplayMemberBinding="{Binding good}"/>
+                    <GridViewColumn Header="Bad?" Width="Auto" DisplayMemberBinding="{Binding bad}"/>
+                </GridView>
+            </ListView.View>
         </ListView>
     </Grid>
 </Window>
