@@ -68,7 +68,7 @@ static class Database
 
     public static Plant GetPlantFromId(long id)
     {
-        var reader = ExecReaderCmd("SELECT * WHERE id = @0", [id]);
+        var reader = ExecReaderCmd("SELECT * WHERE id = @0", new object[] { id });
         reader.Read();
         return Plant.LoadFromReader(reader);
     }
@@ -86,7 +86,7 @@ static class Database
 
     public static List<long> GetGoodNeighIds(long id)
     {
-        var reader = ExecReaderCmd("SELECT * FROM good_neighbours WHERE plant1 = @0 OR plant2 @0", [id]);
+        var reader = ExecReaderCmd("SELECT * FROM good_neighbours WHERE plant1 = @0 OR plant2 @0", new object[] {id});
         List<long> output = new List<long>();
         while (reader.Read())
         {
