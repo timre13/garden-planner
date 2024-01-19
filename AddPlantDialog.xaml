@@ -12,10 +12,13 @@
             <RowDefinition Height="4*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="0">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Width" Value="100"></Setter>
+                </Style>
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="Margin" Value="15,0,15,0"></Setter>
                 </Style>
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
@@ -31,26 +34,46 @@
                 <TextBox></TextBox>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <StackPanel.Resources>
+        <Grid Grid.Row="1" Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
                 <Style TargetType="{x:Type ListBox}">
                     <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-                    <Setter Property="Height" Value="100"></Setter>
+                    <Setter Property="Margin" Value="0,10,0,10"></Setter>
                 </Style>
-            </StackPanel.Resources>
-            <StackPanel>
-                <Label>Rossz szomszédok:</Label>
-                <ListBox></ListBox>
-                <ComboBox></ComboBox>
-                <Button>Hozzáadás</Button>
-            </StackPanel>
-            <StackPanel>
-                <Label>Jó szomszédok:</Label>
-                <ListBox></ListBox>
-                <ComboBox></ComboBox>
-                <Button>Hozzáadás</Button>
-            </StackPanel>
-        </StackPanel>
-        <Button Grid.Row="2">Növény hozzáadása</Button>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5,5,5,5"></Setter>
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Margin" Value="0,0,50,0"/>
+                </Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="50,0,0,0"/>
+                </Style>
+            </Grid.Resources>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Rossz szomszédok:</Label>
+            <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></ListBox>
+            <ComboBox Grid.Row="2" Grid.Column="0"></ComboBox>
+            <Button Grid.Row="2" Grid.Column="1">Hozzáadás</Button>
+            <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">Jó szomszédok:</Label>
+            <ListBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"></ListBox>
+            <ComboBox Grid.Row="2" Grid.Column="3"></ComboBox>
+            <Button Grid.Row="2" Grid.Column="4">Hozzáadás</Button>
+        </Grid>
+        <Button Grid.Row="2" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,10,10,10">Növény hozzáadása</Button>
     </Grid>
 </Window>
