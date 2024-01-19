@@ -1,0 +1,56 @@
+﻿<Window x:Class="garden_planner.AddPlantDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:garden_planner"
+        mc:Ignorable="d"
+        Title="AddPlantDialog" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Width" Value="100"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal">
+                <Label>Név:</Label>
+                <TextBox></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Sortávolság:</Label>
+                <TextBox></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Tőtávolság:</Label>
+                <TextBox></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type ListBox}">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                    <Setter Property="Height" Value="100"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel>
+                <Label>Rossz szomszédok:</Label>
+                <ListBox></ListBox>
+                <ComboBox></ComboBox>
+                <Button>Hozzáadás</Button>
+            </StackPanel>
+            <StackPanel>
+                <Label>Jó szomszédok:</Label>
+                <ListBox></ListBox>
+                <ComboBox></ComboBox>
+                <Button>Hozzáadás</Button>
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Row="2">Növény hozzáadása</Button>
+    </Grid>
+</Window>
