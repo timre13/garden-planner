@@ -34,9 +34,9 @@ cur.execute("DROP TABLE IF EXISTS plants")
 cur.execute("""
     CREATE TABLE plants (
         id INTEGER UNIQUE NOT NULL PRIMARY KEY,
-        name TEXT UNIQUE NOT NULL,
-        sortavolsag INTEGER NOT NULL,
-        totavolsag INTEGER NOT NULL,
+        name TEXT UNIQUE NOT NULL CHECK(LENGTH(name) > 0),
+        sortavolsag INTEGER NOT NULL CHECK(sortavolsag >= 1),
+        totavolsag INTEGER NOT NULL CHECK(sortavolsag >= 1),
         color TEXT
     )
 """)
