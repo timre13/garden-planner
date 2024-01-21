@@ -42,7 +42,7 @@ namespace garden_planner
                 if (plant == null) continue;
                 var item = new
                 {
-                    plant = plant,
+                    plant,
                     bad = false,
                     good = false
                 };
@@ -67,7 +67,7 @@ namespace garden_planner
                     {
                         good = true,
                         bad = false,
-                        plant = plant
+                        plant
                     };
                 } else if (bads.Contains(plant.Id))
                 {
@@ -75,7 +75,7 @@ namespace garden_planner
                     {
                         good = false,
                         bad = true,
-                        plant = plant
+                        plant
                     };
                 } else
                 {
@@ -85,7 +85,7 @@ namespace garden_planner
                         {
                             good = false,
                             bad = false,
-                            plant = plant
+                            plant
                         };
                     }
                 }

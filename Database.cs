@@ -173,6 +173,9 @@ public class Plant
     public long? Totav { get; private set; }
     public string? Color { get; private set; }
 
+    public string SortavDisp { get => (Sortav is null or 0) ? "-" : Sortav!.ToString()!; }
+    public string TotavDisp { get => (Totav is null or 0) ? "-" : Totav!.ToString()!; }
+
     private Plant(long id, string name, long? sortav, long? totav, string? color)
     {
         Id = id;
