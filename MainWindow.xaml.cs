@@ -52,6 +52,7 @@ namespace garden_planner
 
         private void Root_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var currentItemI = Root.SelectedIndex;
             dynamic currentItem = Root.SelectedItem;
             if (currentItem?.plant == null) return;
             Plant selectedPlant = currentItem.plant;
@@ -90,6 +91,7 @@ namespace garden_planner
                     }
                 }
             }
+            Root.SelectedIndex = currentItemI;
         }
     }
 }
