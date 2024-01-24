@@ -93,5 +93,11 @@ namespace garden_planner
             }
             Root.SelectedIndex = currentItemI;
         }
+
+        private void AddPlantButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new AddPlantDialog();
+            dialog.ShowDialog();
+        }
     }
 }

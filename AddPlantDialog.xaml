@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:garden_planner"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
         mc:Ignorable="d"
         Title="AddPlantDialog" Height="450" Width="800">
     <Grid Margin="10">
@@ -17,21 +18,24 @@
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Width" Value="100"></Setter>
                 </Style>
+                <Style TargetType="{x:Type xctk:IntegerUpDown}">
+                    <Setter Property="Width" Value="100"></Setter>
+                </Style>
                 <Style TargetType="{x:Type StackPanel}">
                     <Setter Property="Margin" Value="15,0,15,0"></Setter>
                 </Style>
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
                 <Label>Név:</Label>
-                <TextBox></TextBox>
+                <TextBox x:Name="NameTB" VerticalContentAlignment="Center"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Sortávolság:</Label>
-                <TextBox></TextBox>
+                <xctk:IntegerUpDown x:Name="SortavTB" VerticalContentAlignment="Center" Minimum="1" Maximum="999"></xctk:IntegerUpDown>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Tőtávolság:</Label>
-                <TextBox></TextBox>
+                <xctk:IntegerUpDown x:Name="TotavTB" VerticalContentAlignment="Center" Minimum="1" Maximum="999"></xctk:IntegerUpDown>
             </StackPanel>
         </StackPanel>
         <Grid Grid.Row="1" Margin="10,10,10,10">
@@ -66,14 +70,15 @@
                 </Style>
             </Grid.Resources>
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Rossz szomszédok:</Label>
-            <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></ListBox>
-            <ComboBox Grid.Row="2" Grid.Column="0"></ComboBox>
-            <Button Grid.Row="2" Grid.Column="1">Hozzáadás</Button>
+            <ListBox x:Name="BadNeighsListBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></ListBox>
+            <ComboBox x:Name="BadNeighsCombo" Grid.Row="2" Grid.Column="0" SelectionChanged="BadNeighsCombo_SelectionChanged"></ComboBox>
+            <Button x:Name="BadNeighsBtn" Grid.Row="2" Grid.Column="1" IsEnabled="False" Click="BadNeigsBtn_Click">Hozzáadás</Button>
+
             <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">Jó szomszédok:</Label>
-            <ListBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"></ListBox>
-            <ComboBox Grid.Row="2" Grid.Column="3"></ComboBox>
-            <Button Grid.Row="2" Grid.Column="4">Hozzáadás</Button>
+            <ListBox x:Name="GoodNeighsListBox" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"></ListBox>
+            <ComboBox x:Name="GoodNeighsCombo" Grid.Row="2" Grid.Column="3" SelectionChanged="GoodNeighsCombo_SelectionChanged"></ComboBox>
+            <Button x:Name="GoodNeighsBtn" Grid.Row="2" Grid.Column="4" IsEnabled="False" Click="GoodNeigsBtn_Click">Hozzáadás</Button>
         </Grid>
-        <Button Grid.Row="2" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,10,10,10">Növény hozzáadása</Button>
+        <Button x:Name="MainAddPlantBtn" Grid.Row="2" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,10,10,10" Click="MainAddPlantBtn_Click">Növény hozzáadása</Button>
     </Grid>
 </Window>
