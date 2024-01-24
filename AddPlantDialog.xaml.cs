@@ -59,8 +59,8 @@ namespace garden_planner
         private void MainAddPlantBtn_Click(object sender, RoutedEventArgs e)
         {
             string? errMsg = null;
-            long sortav;
-            long totav;
+            long sortav = 0;
+            long totav = 0;
 
             HashSet<string> gns = new HashSet<string>(GoodNeighsListBox.Items.OfType<string>());
             HashSet<string> bns = new HashSet<string>(BadNeighsListBox.Items.OfType<string>());
@@ -87,6 +87,11 @@ namespace garden_planner
                 System.Windows.MessageBox.Show(errMsg, "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            Plant plant = new Plant(NameTB.Text, sortav, totav, null);
+            var gnIds = gns.Select(x => (long)Database.GetPlantIdFromName(x)!).ToList();
+            var bnIds = bns.Select(x => (long)Database.GetPlantIdFromName(x)!).ToList();
+            Database.AddPlantDefinition(ref plant, gnIds, bnIds);
 
             Close();
         }
