@@ -3,13 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
         xmlns:local="clr-namespace:garden_planner"
         mc:Ignorable="d"
-        Title="MainWindow" Width="1500" Height="800">
+        Title="MainWindow" Width="1500" Height="800"
+        ResizeMode="NoResize"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <GroupBox Grid.Column="0" >
             <GroupBox.Header>
@@ -20,7 +24,7 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ListView Grid.Row="0" x:Name="Root" Loaded="Root_Loaded" SelectionChanged="Root_SelectionChanged" SelectionMode="Single">
+                <ListView  Grid.Row="0" x:Name="Root" Loaded="Root_Loaded" SelectionChanged="Root_SelectionChanged" SelectionMode="Single">
                     <ListView.Resources>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Style.Triggers>
@@ -35,11 +39,19 @@
                     </ListView.Resources>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Név" Width="Auto" DisplayMemberBinding="{Binding plant.Name}"/>
+                            <GridViewColumn Header="Név" Width="190"  DisplayMemberBinding="{Binding plant.Name}"/>
                             <GridViewColumn Header="Tőtáv." Width="Auto" DisplayMemberBinding="{Binding plant.TotavDisp}"/>
                             <GridViewColumn Header="Sortáv." Width="Auto" DisplayMemberBinding="{Binding plant.SortavDisp}"/>
+                            <GridViewColumn Header="Mennyiség" Width="Auto" DisplayMemberBinding="{Binding amount}"/>
                         </GridView>
                     </ListView.View>
+                    <ListView.ContextMenu>
+                        <ContextMenu Closed="ContextMenu_Closed">
+                            <MenuItem Header="Törlés" Click="MenuDelete_Click"/>
+                            <MenuItem Header="Módosítás" Click="MenuEdit_Click"/>
+                            <xctk:IntegerUpDown x:Name="MenuUpDown" HorizontalAlignment="Stretch" Minimum="0" ValueChanged="MenuIntegerUpDown_ValueChanged" />
+                        </ContextMenu>
+                    </ListView.ContextMenu>
                 </ListView>
                 <Button x:Name="AddPlantButton" Grid.Row="1" Click="AddPlantButton_Click">Új növény...</Button>
             </Grid>
