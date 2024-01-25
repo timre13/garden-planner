@@ -143,8 +143,8 @@ static class Database
             throw new ArgumentException("Plant has invalid `sortav`");
         if (plant.Totav < 1)
             throw new ArgumentException("Plant has invalid `totav`");
-        //if ((plant.Color?.Length ?? 0) == 0)
-            //throw new ArgumentException("Plant has invalid `color`");
+        if ((plant.Color?.Length ?? 0) == 0)
+            throw new ArgumentException("Plant has invalid `color`");
 
         var count = ExecWriterCmd("INSERT INTO plants (name, sortavolsag, totavolsag, color) VALUES (@0, @1, @2, @3)",
             new object[] { plant.Name, plant.Sortav ?? 0, plant.Totav ?? 0, plant.Color ?? "#33dd55" });
