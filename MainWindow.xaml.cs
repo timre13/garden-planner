@@ -42,7 +42,7 @@ namespace garden_planner
                 if (plant == null) continue;
                 var item = new
                 {
-                    plant = plant,
+                    plant,
                     bad = false,
                     good = false
                 };
@@ -52,6 +52,7 @@ namespace garden_planner
 
         private void Root_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var currentItemI = Root.SelectedIndex;
             dynamic currentItem = Root.SelectedItem;
             if (currentItem?.plant == null) return;
             Plant selectedPlant = currentItem.plant;
@@ -67,7 +68,7 @@ namespace garden_planner
                     {
                         good = true,
                         bad = false,
-                        plant = plant
+                        plant
                     };
                 } else if (bads.Contains(plant.Id))
                 {
@@ -75,7 +76,7 @@ namespace garden_planner
                     {
                         good = false,
                         bad = true,
-                        plant = plant
+                        plant
                     };
                 } else
                 {
@@ -85,11 +86,18 @@ namespace garden_planner
                         {
                             good = false,
                             bad = false,
-                            plant = plant
+                            plant
                         };
                     }
                 }
             }
+            Root.SelectedIndex = currentItemI;
+        }
+
+        private void AddPlantButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new AddPlantDialog();
+            dialog.ShowDialog();
         }
     }
 }

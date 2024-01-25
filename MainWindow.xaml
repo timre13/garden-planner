@@ -5,29 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:garden_planner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Width="1500" Height="800">
     <Grid>
-        <ListView x:Name="Root" Loaded="Root_Loaded" SelectionChanged="Root_SelectionChanged" SelectionMode="Single">
-            <ListView.Resources>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding bad}" Value="true">
-                            <Setter Property="Background" Value="Red"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding good}" Value="true">
-                            <Setter Property="Background" Value="Green"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.Resources>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding plant.Id}"/>
-                    <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding plant.Name}"/>
-                    <GridViewColumn Header="Good?" Width="Auto" DisplayMemberBinding="{Binding good}"/>
-                    <GridViewColumn Header="Bad?" Width="Auto" DisplayMemberBinding="{Binding bad}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0" >
+            <GroupBox.Header>
+                <Label>Elérhető növények</Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" x:Name="Root" Loaded="Root_Loaded" SelectionChanged="Root_SelectionChanged" SelectionMode="Single">
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding bad}" Value="true">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding good}" Value="true">
+                                    <Setter Property="Foreground" Value="LightGreen"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Név" Width="Auto" DisplayMemberBinding="{Binding plant.Name}"/>
+                            <GridViewColumn Header="Tőtáv." Width="Auto" DisplayMemberBinding="{Binding plant.TotavDisp}"/>
+                            <GridViewColumn Header="Sortáv." Width="Auto" DisplayMemberBinding="{Binding plant.SortavDisp}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button x:Name="AddPlantButton" Grid.Row="1" Click="AddPlantButton_Click">Új növény...</Button>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

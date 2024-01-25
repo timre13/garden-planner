@@ -125,11 +125,17 @@ static class Database
         return reader.HasRows;
     }
 
+    public static long? GetPlantIdFromName(in string name)
+    {
+        var reader = ExecReaderCmd("SELECT id FROM plants WHERE name = @0", new object[] { name });
+        return reader.Read() ? reader.GetInt64(0) : null;
+    }
+
     public static void AddPlantDefinition(ref Plant plant, in List<long> goodNeighIds, in List<long> badNeighIds)
     {
         if (plant == null)
             throw new ArgumentNullException("Plant is null");
-        if (plant.Id == 0)
+        if (plant.Id != 0)
             throw new ArgumentException("Plant has an ID");
         if (plant.Name.Length == 0)
             throw new ArgumentException("Plant has empty `name`");
@@ -137,11 +143,11 @@ static class Database
             throw new ArgumentException("Plant has invalid `sortav`");
         if (plant.Totav < 1)
             throw new ArgumentException("Plant has invalid `totav`");
-        if ((plant.Color?.Length ?? 0) == 0)
-            throw new ArgumentException("Plant has invalid `color`");
+        //if ((plant.Color?.Length ?? 0) == 0)
+            //throw new ArgumentException("Plant has invalid `color`");
 
-        var count = ExecWriterCmd("INSERT INTO plants (name, sortavolsag, totavolsag, color) " +
-            $"VALUES ({plant.Name}, {plant.Sortav ?? 0}, {plant.Totav ?? 0}, {plant.Color ?? "NULL"})");
+        var count = ExecWriterCmd("INSERT INTO plants (name, sortavolsag, totavolsag, color) VALUES (@0, @1, @2, @3)",
+            new object[] { plant.Name, plant.Sortav ?? 0, plant.Totav ?? 0, plant.Color ?? "#33dd55" });
         if (count != 1)
             throw new Exception("Failed to insert Plant");
 
@@ -173,7 +179,10 @@ public class Plant
     public long? Totav { get; private set; }
     public string? Color { get; private set; }
 
-    private Plant(long id, string name, long? sortav, long? totav, string? color)
+    public string SortavDisp { get => (Sortav is null or 0) ? "-" : Sortav!.ToString()!; }
+    public string TotavDisp { get => (Totav is null or 0) ? "-" : Totav!.ToString()!; }
+
+    public Plant(long id, string name, long? sortav, long? totav, string? color)
     {
         Id = id;
         Name = name;
@@ -181,6 +190,9 @@ public class Plant
         Totav = totav;
         Color = color;
     }
+
+    public Plant(string name, long? sortav, long? totav, string? color)
+        : this(0, name, sortav, totav, color) { }
 
     public static Plant LoadFromReader(SQLiteDataReader reader)
     {
