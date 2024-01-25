@@ -169,6 +169,13 @@ static class Database
                 "(@0, @1)", new object[] { plantId, id }.Order());
         }
     }
+
+    public static void RemovePlantDefinitionById(long id)
+    {
+        ExecWriterCmd("DELETE FROM good_neighbours WHERE plant1 = @0 OR plant2 = @0", new dynamic[] { id });
+        ExecWriterCmd("DELETE FROM bad_neighbours WHERE plant1 = @0 OR plant2 = @0", new dynamic[] { id });
+        ExecWriterCmd("DELETE FROM plants WHERE id = @0", new dynamic[] { id });
+    }
 }
 
 public class Plant
