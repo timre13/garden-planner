@@ -24,6 +24,9 @@ namespace garden_planner
         public MainWindow()
         {
             InitializeComponent();
+
+            var dlg = new SizeDialog();
+            dlg.ShowDialog();
         }
 
         private void Root_Loaded(object sender, RoutedEventArgs e)
