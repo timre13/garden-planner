@@ -132,7 +132,7 @@ namespace garden_planner
             var reader = ExecReaderCmd("SELECT id FROM plants WHERE name = @0", new object[] { name });
             return reader.Read() ? reader.GetInt64(0) : null;
         }
-
+      
         public static void AddPlantDefinition(ref Plant plant, in List<long> goodNeighIds, in List<long> badNeighIds)
         {
             if (plant == null)
@@ -145,8 +145,8 @@ namespace garden_planner
                 throw new ArgumentException("Plant has invalid `sortav`");
             if (plant.Totav < 1)
                 throw new ArgumentException("Plant has invalid `totav`");
-            //if ((plant.Color?.Length ?? 0) == 0)
-                //throw new ArgumentException("Plant has invalid `color`");
+            if ((plant.Color?.Length ?? 0) == 0)
+                throw new ArgumentException("Plant has invalid `color`");
 
             var count = ExecWriterCmd("INSERT INTO plants (name, sortavolsag, totavolsag, color) VALUES (@0, @1, @2, @3)",
                 new object[] { plant.Name, plant.Sortav ?? 0, plant.Totav ?? 0, plant.Color ?? "#33dd55" });
@@ -158,10 +158,10 @@ namespace garden_planner
                 throw new Exception("Failed to get LAST_INSERT_ROWID()");
             foreach (var id in goodNeighIds)
             {
-                if (plantId == id || plantId == 0)
-                    throw new ArgumentException("Invalid id for neighbour");
-                ExecWriterCmd("INSERT INTO good_neighbours (plant1, plant2) VALUES " +
-                    "(@0, @1)", new object[] { plantId, id }.Order() );
+                    if (plantId == id || plantId == 0)
+                        throw new ArgumentException("Invalid id for neighbour");
+                    ExecWriterCmd("INSERT INTO good_neighbours (plant1, plant2) VALUES " +
+                        "(@0, @1)", new object[] { plantId, id }.Order() );
             }
             foreach (var id in badNeighIds)
             {
@@ -171,5 +171,12 @@ namespace garden_planner
                     "(@0, @1)", new object[] { plantId, id }.Order());
             }
         }
-    } 
+
+        public static void RemovePlantDefinitionById(long id)
+        {
+            ExecWriterCmd("DELETE FROM good_neighbours WHERE plant1 = @0 OR plant2 = @0", new dynamic[] { id });
+            ExecWriterCmd("DELETE FROM bad_neighbours WHERE plant1 = @0 OR plant2 = @0", new dynamic[] { id });
+            ExecWriterCmd("DELETE FROM plants WHERE id = @0", new dynamic[] { id });
+        }
+    }
 }

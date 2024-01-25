@@ -37,6 +37,14 @@
                 <Label>Tőtávolság:</Label>
                 <xctk:IntegerUpDown x:Name="TotavTB" VerticalContentAlignment="Center" Minimum="1" Maximum="999"></xctk:IntegerUpDown>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Szín:</Label>
+                <xctk:ColorPicker x:Name="PlantColorPicker" Width="100" SelectedColor="#FF33DD55" UsingAlphaChannel="False"
+                                  ShowRecentColors="True" ShowStandardColors="False"
+                                  AvailableColorsSortingMode="HueSaturationBrightness"
+                                  AvailableColorsHeader="Gyakori Színek" RecentColorsHeader="Legutóbbi Színek"
+                                  AdvancedTabHeader="Színkeverő" StandardTabHeader="Paletta"/>
+            </StackPanel>
         </StackPanel>
         <Grid Grid.Row="1" Margin="10,10,10,10">
             <Grid.RowDefinitions>
@@ -79,6 +87,7 @@
             <ComboBox x:Name="GoodNeighsCombo" Grid.Row="2" Grid.Column="3" SelectionChanged="GoodNeighsCombo_SelectionChanged"></ComboBox>
             <Button x:Name="GoodNeighsBtn" Grid.Row="2" Grid.Column="4" IsEnabled="False" Click="GoodNeigsBtn_Click">Hozzáadás</Button>
         </Grid>
-        <Button x:Name="MainAddPlantBtn" Grid.Row="2" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10,10,10,10" Click="MainAddPlantBtn_Click">Növény hozzáadása</Button>
+        <Button x:Name="MainAddPlantBtn" Grid.Row="2" FontSize="16" HorizontalAlignment="Center"
+                VerticalAlignment="Center" Padding="10,10,10,10" Click="MainAddPlantBtn_Click">Növény hozzáadása</Button>
     </Grid>
 </Window>
