@@ -88,7 +88,7 @@ namespace garden_planner
                 return;
             }
 
-            Plant plant = new Plant(NameTB.Text, sortav, totav, null);
+            Plant plant = new Plant(NameTB.Text, sortav, totav, PlantColorPicker.SelectedColorText);
             var gnIds = gns.Select(x => (long)Database.GetPlantIdFromName(x)!).ToList();
             var bnIds = bns.Select(x => (long)Database.GetPlantIdFromName(x)!).ToList();
             Database.AddPlantDefinition(ref plant, gnIds, bnIds);
