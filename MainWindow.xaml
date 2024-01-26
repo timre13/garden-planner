@@ -12,8 +12,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <GroupBox Grid.Column="0" >
             <GroupBox.Header>
@@ -56,5 +55,7 @@
                 <Button x:Name="AddPlantButton" Grid.Row="1" Click="AddPlantButton_Click">Új növény...</Button>
             </Grid>
         </GroupBox>
+        <Canvas x:Name="mainCanvas" Grid.Column="1" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Loaded="mainCanvas_Loaded">
+        </Canvas>
     </Grid>
 </Window>
