@@ -48,7 +48,7 @@
                     <ListView.ContextMenu>
                         <ContextMenu Closed="ContextMenu_Closed">
                             <MenuItem Header="Törlés" Click="MenuDelete_Click"/>
-                            <MenuItem Header="Módosítás" Click="MenuEdit_Click"/>
+                            <!--<MenuItem Header="Módosítás" Click="MenuEdit_Click"/>-->
                             <xctk:IntegerUpDown x:Name="MenuUpDown" HorizontalAlignment="Stretch" Minimum="0" ValueChanged="MenuIntegerUpDown_ValueChanged" />
                         </ContextMenu>
                     </ListView.ContextMenu>

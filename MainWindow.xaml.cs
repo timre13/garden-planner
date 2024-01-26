@@ -70,12 +70,16 @@ namespace garden_planner
 
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            var currentItemI = Root.SelectedIndex;
+            dynamic currentItem = Root.SelectedItem;
+            if (currentItem?.plant == null) return;
+            Plant selectedPlant = currentItem.plant;
+            Database.RemovePlantDefinitionById(selectedPlant.Id);
         }
 
         private void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private Dictionary<long, int> plantAmounts = new Dictionary<long, int>();
