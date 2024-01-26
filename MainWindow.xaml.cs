@@ -22,14 +22,31 @@ namespace garden_planner
     public partial class MainWindow : Window
     {
         CanvasWrapper canvasWrapper;
+
+        public int GardenWidth;
+        public int GardenHeight;
+
         public MainWindow()
         {
+            var dlg = new SizeDialog();
+            dlg.ShowDialog();
+
+            if (dlg.WidthValue == null || dlg.HeightValue == null)
+            {
+                Close();
+                return;
+            }
+
+            GardenWidth = (int)dlg.WidthValue;
+            GardenHeight = (int)dlg.HeightValue;
+
             InitializeComponent();
         }
 
         private void Root_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Root_Loaded");
+
             Root.Items.Clear();
             var plants = Database.GetAllPlantsOrdered();
             
