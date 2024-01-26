@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+import random
 
 tree = ET.parse("neighbours.xml")
 
@@ -17,8 +18,8 @@ badPairs = set()
 for child in root:
     plants.add(Plant(
         child.attrib["name"],
-        child.attrib.get("sortav", 0),
-        child.attrib.get("totav", 0)))
+        child.attrib.get("sortav", 10),
+        child.attrib.get("totav", 10)))
     for child1 in child:
         if child1.tag == "good":
             goodPairs.add(".".join(sorted([child.attrib["name"], child1.text])))
@@ -41,10 +42,13 @@ cur.execute("""
     )
 """)
 
+def genColor() -> str:
+    return "#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)])
+
 for plant in tuple(plants):
     cur.execute("""
     INSERT INTO plants (name, sortavolsag, totavolsag, color)
-    VALUES (?, ?, ?, ?)""", [plant.name, plant.sortav, plant.totav, "#33dd55"])
+    VALUES (?, ?, ?, ?)""", [plant.name, plant.sortav, plant.totav, genColor()])
 
 cur.execute("DROP TABLE IF EXISTS good_neighbours")
 cur.execute("""

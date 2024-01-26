@@ -38,10 +38,17 @@
                     </ListView.Resources>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Név" Width="190"  DisplayMemberBinding="{Binding plant.Name}"/>
+                            <GridViewColumn Header="Név" Width="170"  DisplayMemberBinding="{Binding plant.Name}"/>
                             <GridViewColumn Header="Tőtáv." Width="Auto" DisplayMemberBinding="{Binding plant.TotavDisp}"/>
                             <GridViewColumn Header="Sortáv." Width="Auto" DisplayMemberBinding="{Binding plant.SortavDisp}"/>
                             <GridViewColumn Header="Mennyiség" Width="Auto" DisplayMemberBinding="{Binding amount}"/>
+                            <GridViewColumn Header="Szín" Width="Auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Rectangle Fill="{Binding plant.Color}" Width="10" Height="10" VerticalAlignment="Center"></Rectangle>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                     <ListView.ContextMenu>
