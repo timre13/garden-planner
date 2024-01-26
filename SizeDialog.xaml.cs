@@ -19,9 +19,19 @@ namespace garden_planner
     /// </summary>
     public partial class SizeDialog : Window
     {
+        public int? WidthValue { get; private set; }
+        public int? HeightValue { get; private set; }
+
         public SizeDialog()
         {
             InitializeComponent();
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            WidthValue = WidthTB.Value;
+            HeightValue = HeightTB.Value;
+            Close();
         }
     }
 }
