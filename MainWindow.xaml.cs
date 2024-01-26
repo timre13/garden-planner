@@ -43,13 +43,13 @@ namespace garden_planner
             InitializeComponent();
         }
 
-        private void Root_Loaded(object sender, RoutedEventArgs e)
+        private void PlantList_Loaded(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Root_Loaded");
+            Debug.WriteLine("PlantList_Loaded");
 
-            Root.Items.Clear();
+            PlantList.Items.Clear();
             var plants = Database.GetAllPlantsOrdered();
-            
+
             foreach (var plant in plants)
             {
                 if (plant == null) continue;
@@ -58,7 +58,7 @@ namespace garden_planner
                 {
                     amount = plantAmounts[plant.Id];
                 }
-                
+
                 var item = new
                 {
                     plant,
@@ -66,16 +66,16 @@ namespace garden_planner
                     good = false,
                     amount
                 };
-                Root.Items.Add(item);
+                PlantList.Items.Add(item);
             }
 
 
         }
 
-        private void Root_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void PlantList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentItemI = Root.SelectedIndex;
-            dynamic currentItem = Root.SelectedItem;
+            var currentItemI = PlantList.SelectedIndex;
+            dynamic currentItem = PlantList.SelectedItem;
             if (currentItem?.plant == null) return;
             MenuUpDown.Value = currentItem.amount;
             RefreshPlantList();
@@ -84,14 +84,14 @@ namespace garden_planner
         private void AddPlantButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new AddPlantDialog();
-            dialog.Closed += (s, e) => Root_Loaded(null, null);
+            dialog.Closed += (s, e) => PlantList_Loaded(null, null);
             dialog.ShowDialog();
         }
 
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            var currentItemI = Root.SelectedIndex;
-            dynamic currentItem = Root.SelectedItem;
+            var currentItemI = PlantList.SelectedIndex;
+            dynamic currentItem = PlantList.SelectedItem;
             if (currentItem?.plant == null) return;
             Plant selectedPlant = currentItem.plant;
             Database.RemovePlantDefinitionById(selectedPlant.Id);
@@ -99,15 +99,15 @@ namespace garden_planner
 
         private void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private Dictionary<long, int> plantAmounts = new Dictionary<long, int>();
 
         private void MenuIntegerUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var currentItemI = Root.SelectedIndex;
-            dynamic currentItem = Root.SelectedItem;
+            var currentItemI = PlantList.SelectedIndex;
+            dynamic currentItem = PlantList.SelectedItem;
             if (currentItem?.plant == null) return;
             Plant selectedPlant = currentItem.plant;
             if (MenuUpDown.Value == null)
@@ -126,15 +126,15 @@ namespace garden_planner
 
         private void RefreshPlantList()
         {
-            var currentItemI = Root.SelectedIndex;
-            dynamic currentItem = Root.SelectedItem;
+            var currentItemI = PlantList.SelectedIndex;
+            dynamic currentItem = PlantList.SelectedItem;
             if (currentItem?.plant == null) return;
             Plant selectedPlant = currentItem.plant;
             var goods = Database.GetNeighIds(selectedPlant.Id, true);
             var bads = Database.GetNeighIds(selectedPlant.Id, false);
-            for (int i = 0; i < Root.Items.Count; i++)
+            for (int i = 0; i < PlantList.Items.Count; i++)
             {
-                var item = Root.Items[i];
+                var item = PlantList.Items[i];
                 var plant = (Plant)((dynamic)item).plant;
                 if (plant == null) continue;
                 int amount = 0;
@@ -145,7 +145,7 @@ namespace garden_planner
 
                 if (goods.Contains(plant.Id))
                 {
-                    Root.Items[i] = new
+                    PlantList.Items[i] = new
                     {
                         good = true,
                         bad = false,
@@ -155,7 +155,7 @@ namespace garden_planner
                 }
                 else if (bads.Contains(plant.Id))
                 {
-                    Root.Items[i] = new
+                    PlantList.Items[i] = new
                     {
                         good = false,
                         bad = true,
@@ -167,7 +167,7 @@ namespace garden_planner
                 {
                     if (((dynamic)item).good || ((dynamic)item).bad)
                     {
-                        Root.Items[i] = new
+                        PlantList.Items[i] = new
                         {
                             good = false,
                             bad = false,
@@ -177,12 +177,12 @@ namespace garden_planner
                     }
                 }
             }
-            Root.SelectedIndex = currentItemI;
+            PlantList.SelectedIndex = currentItemI;
         }
 
         private void ContextMenu_Closed(object sender, RoutedEventArgs e)
         {
-            Root_Loaded(null, null);
+            PlantList_Loaded(null, null);
         }
 
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)

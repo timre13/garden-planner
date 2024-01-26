@@ -23,7 +23,7 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ListView  Grid.Row="0" x:Name="Root" Loaded="Root_Loaded" SelectionChanged="Root_SelectionChanged" SelectionMode="Single">
+                <ListView  Grid.Row="0" x:Name="PlantList" Loaded="PlantList_Loaded" SelectionChanged="PlantList_SelectionChanged" SelectionMode="Single">
                     <ListView.Resources>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Style.Triggers>
