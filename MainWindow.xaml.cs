@@ -21,6 +21,7 @@ namespace garden_planner
     /// </summary>
     public partial class MainWindow : Window
     {
+        CanvasWrapper canvasWrapper;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,6 +51,8 @@ namespace garden_planner
                 };
                 Root.Items.Add(item);
             }
+
+
         }
 
         private void Root_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -163,6 +166,11 @@ namespace garden_planner
         private void ContextMenu_Closed(object sender, RoutedEventArgs e)
         {
             Root_Loaded(null, null);
+        }
+
+        private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+            canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
         }
     }
 }
