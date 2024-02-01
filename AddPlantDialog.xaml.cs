@@ -178,5 +178,14 @@ namespace garden_planner
 
             Close();
         }
+
+        private void BadNeighsDelete_Click(object sender, RoutedEventArgs e)
+        {
+            BadNeighsListBox.Items.Remove(BadNeighsListBox.SelectedItem);
+        }
+        private void GoodNeighsDelete_Click(object sender, RoutedEventArgs e)
+        {
+            GoodNeighsListBox.Items.Remove(GoodNeighsListBox.SelectedItem);
+        }
     }
 }
