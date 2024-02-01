@@ -22,6 +22,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <ListView  Grid.Row="0" x:Name="PlantList" Loaded="PlantList_Loaded" SelectionChanged="PlantList_SelectionChanged" SelectionMode="Single">
                     <ListView.Resources>
@@ -60,6 +61,8 @@
                     </ListView.ContextMenu>
                 </ListView>
                 <Button x:Name="AddPlantButton" Grid.Row="1" Click="AddPlantButton_Click">Új növény...</Button>
+                <Button x:Name="SolveButton" Grid.Row="2" Click="SolveButton_Click">Elrendezés</Button>
+                
             </Grid>
         </GroupBox>
         <Canvas x:Name="mainCanvas" Grid.Column="1" Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Loaded="mainCanvas_Loaded">

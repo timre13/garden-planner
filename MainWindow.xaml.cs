@@ -188,6 +188,27 @@ namespace garden_planner
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
         {
             canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
+            RedrawCanvas();
         }
+
+        private void RedrawCanvas()
+        {
+            canvasWrapper.DrawPlant(Database.GetAllPlantsOrdered()[10], 50, 60);
+        }
+
+        private void SolveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Elrendezés");
+
+
+            List<GardenRow> rows = new List<GardenRow>();
+        }
+    }
+
+    class GardenRow
+    {
+        List<Plant> plants = new List<Plant>();
+
+        public long Height => plants.MaxBy(x => x.Sortav)!.Sortav ?? 10;
     }
 }

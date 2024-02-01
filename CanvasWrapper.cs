@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace garden_planner
@@ -29,6 +30,21 @@ namespace garden_planner
             Canvas.SetLeft(borderRect, 0);
             Canvas.SetTop(borderRect, 0);
             canvas.Children.Add(borderRect);
+        }
+
+        public void DrawPlant(in Plant plant, int x, int y)
+        {
+            var shape = new Ellipse
+            {
+                Width = plant.Sortav ?? 10,
+                Height = plant.Sortav ?? 10,
+                Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(plant.Color)),
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1
+            };
+            Canvas.SetLeft(shape, x);
+            Canvas.SetTop(shape, y);
+            canvas.Children.Add(shape);
         }
     }
 }
