@@ -77,7 +77,7 @@ namespace garden_planner
 
         public static Plant GetPlantFromId(long id)
         {
-            var reader = ExecReaderCmd("SELECT * WHERE id = @0", new object[] { id });
+            var reader = ExecReaderCmd("SELECT * from plants WHERE id = @0", new object[] { id });
             reader.Read();
             return Plant.LoadFromReader(reader);
         }
@@ -131,6 +131,45 @@ namespace garden_planner
         {
             var reader = ExecReaderCmd("SELECT id FROM plants WHERE name = @0", new object[] { name });
             return reader.Read() ? reader.GetInt64(0) : null;
+        }
+
+        public static void UpdatePlant(ref Plant plant, in List<long> goodNeighIds, in List<long> badNeighIds)
+        {
+            if (plant == null)
+                throw new ArgumentNullException("Plant is null");
+            if (plant.Id != 0)
+                throw new ArgumentException("Plant has an ID");
+            if (plant.Name.Length == 0)
+                throw new ArgumentException("Plant has empty `name`");
+            if (plant.Sortav < 1)
+                throw new ArgumentException("Plant has invalid `sortav`");
+            if (plant.Totav < 1)
+                throw new ArgumentException("Plant has invalid `totav`");
+            if ((plant.Color?.Length ?? 0) == 0)
+                throw new ArgumentException("Plant has invalid `color`");
+
+            var count = ExecWriterCmd("INSERT INTO plants (name, sortavolsag, totavolsag, color) VALUES (@0, @1, @2, @3)",
+                new object[] { plant.Name, plant.Sortav ?? 0, plant.Totav ?? 0, plant.Color ?? "#33dd55" });
+            if (count != 1)
+                throw new Exception("Failed to insert Plant");
+
+            var plantId = GetLastInsertRowId();
+            if (plantId == 0)
+                throw new Exception("Failed to get LAST_INSERT_ROWID()");
+            foreach (var id in goodNeighIds)
+            {
+                if (plantId == id || plantId == 0)
+                    throw new ArgumentException("Invalid id for neighbour");
+                ExecWriterCmd("INSERT INTO good_neighbours (plant1, plant2) VALUES " +
+                    "(@0, @1)", new object[] { plantId, id }.Order());
+            }
+            foreach (var id in badNeighIds)
+            {
+                if (plantId == id || plantId == 0)
+                    throw new ArgumentException("Invalid id for neighbour");
+                ExecWriterCmd("INSERT INTO bad_neighbours (plant1, plant2) VALUES " +
+                    "(@0, @1)", new object[] { plantId, id }.Order());
+            }
         }
       
         public static void AddPlantDefinition(ref Plant plant, in List<long> goodNeighIds, in List<long> badNeighIds)

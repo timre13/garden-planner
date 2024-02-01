@@ -21,7 +21,7 @@ namespace garden_planner
     /// </summary>
     public partial class MainWindow : Window
     {
-        CanvasWrapper canvasWrapper;
+        CanvasWrapper? canvasWrapper;
 
         public int GardenWidth;
         public int GardenHeight;
@@ -84,7 +84,7 @@ namespace garden_planner
         private void AddPlantButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new AddPlantDialog();
-            dialog.Closed += (s, e) => PlantList_Loaded(null, null);
+            dialog.Closed += (s, e) => PlantList_Loaded(new object(), new RoutedEventArgs());
             dialog.ShowDialog();
         }
 
@@ -99,7 +99,21 @@ namespace garden_planner
 
         private void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            var currentItemI = PlantList.SelectedIndex;
+            dynamic currentItem = PlantList.SelectedItem;
+            if (currentItem?.plant == null) return;
+            Plant selectedPlant = currentItem.plant;
+            var dialog = new AddPlantDialog(
+                selectedPlant.Name,
+                selectedPlant.Sortav,
+                selectedPlant.Totav,
+                selectedPlant.Color,
+                selectedPlant.Id,
+                Database.GetNeighs(selectedPlant.Id, true).Select(x => x.Name).ToList(),
+                Database.GetNeighs(selectedPlant.Id, false).Select(x => x.Name).ToList()
+            );
+            dialog.Closed += (s, e) => PlantList_Loaded(new object(), new RoutedEventArgs());
+            dialog.ShowDialog();
         }
 
         private Dictionary<long, int> plantAmounts = new Dictionary<long, int>();
@@ -182,7 +196,7 @@ namespace garden_planner
 
         private void ContextMenu_Closed(object sender, RoutedEventArgs e)
         {
-            PlantList_Loaded(null, null);
+            PlantList_Loaded(new object(), new RoutedEventArgs());
         }
 
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
