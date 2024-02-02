@@ -193,22 +193,31 @@ namespace garden_planner
 
         private void RedrawCanvas()
         {
-            canvasWrapper.DrawPlant(Database.GetAllPlantsOrdered()[10], 50, 60);
+            canvasWrapper.DrawPlant(Database.GetAllPlantsOrdered()[10], 100, 100);
         }
+
+        List<PositionedPlant> plants = new List<PositionedPlant>();
 
         private void SolveButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Elrendezés");
-
-
-            List<GardenRow> rows = new List<GardenRow>();
+            foreach (var plantCnt in PlantList.Items)
+            {
+                var count = (plantCnt as dynamic).amount;
+            }
         }
     }
 
-    class GardenRow
+    struct PositionedPlant
     {
-        List<Plant> plants = new List<Plant>();
+        Plant plant;
+        int x;
+        int y;
 
-        public long Height => plants.MaxBy(x => x.Sortav)!.Sortav ?? 10;
+        public PositionedPlant(in Plant p, int x, int y)
+        {
+            this.plant = p;
+            this.x = x;
+            this.y = y;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -42,9 +43,31 @@ namespace garden_planner
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1
             };
-            Canvas.SetLeft(shape, x);
-            Canvas.SetTop(shape, y);
+            Canvas.SetLeft(shape, (double)(x - plant.Sortav! / 2));
+            Canvas.SetTop(shape, (double)(y - plant.Sortav! / 2));
             canvas.Children.Add(shape);
+
+            var line1 = new Line()
+            {
+                X1 = x-5,
+                Y1 = y-5,
+                X2 = x+5,
+                Y2 = y+5,
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1
+            };
+            canvas.Children.Add(line1);
+
+            var line2 = new Line()
+            {
+                X1 = x - 5,
+                Y1 = y + 5,
+                X2 = x + 5,
+                Y2 = y - 5,
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1
+            };
+            canvas.Children.Add(line2);
         }
     }
 }
