@@ -205,7 +205,8 @@ namespace garden_planner
 
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-            canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
+            canvasWrapper = new CanvasWrapper(mainCanvas, GardenWidth, GardenHeight);
+
         }
     }
 }
