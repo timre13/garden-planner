@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -35,11 +37,25 @@ namespace garden_planner
 
         public void DrawPlant(in Plant plant, int x, int y)
         {
+            var c1 = ((Color)ColorConverter.ConvertFromString(plant.Color));
+            c1.A = 100;
+            var shape1 = new Rectangle()
+            {
+                Width = plant.Totavv,
+                Height = plant.Sortavv,
+                Fill = new SolidColorBrush(c1),
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1
+            };
+            Canvas.SetLeft(shape1, (x - plant.Totavv / 2));
+            Canvas.SetTop(shape1, (y - plant.Sortavv / 2));
+            canvas.Children.Add(shape1);
+
             var shape = new Ellipse
             {
                 Width = plant.Sortav ?? 10,
                 Height = plant.Sortav ?? 10,
-                Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString(plant.Color)),
+                Fill = new SolidColorBrush(c1),
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1
             };

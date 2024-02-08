@@ -28,6 +28,7 @@ namespace garden_planner
 
         public MainWindow()
         {
+            /*
             var dlg = new SizeDialog();
             dlg.ShowDialog();
 
@@ -39,6 +40,10 @@ namespace garden_planner
 
             GardenWidth = (int)dlg.WidthValue;
             GardenHeight = (int)dlg.HeightValue;
+            */
+
+            GardenWidth = (int)10000;
+            GardenHeight = (int)10000;
 
             InitializeComponent();
         }
@@ -64,12 +69,10 @@ namespace garden_planner
                     plant,
                     bad = false,
                     good = false,
-                    amount
+                    amount = (plant.Id % 16 == 0 ? 4 : 0)
                 };
                 PlantList.Items.Add(item);
             }
-
-
         }
 
         private void PlantList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -189,35 +192,89 @@ namespace garden_planner
         {
             canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
             RedrawCanvas();
+            SolveButton_Click(null, null);
         }
 
         private void RedrawCanvas()
         {
-            canvasWrapper.DrawPlant(Database.GetAllPlantsOrdered()[10], 100, 100);
+            foreach (var p in placedPlants)
+            {
+                canvasWrapper.DrawPlant(p.plant, p.x, p.y);
+            }
         }
 
-        List<PositionedPlant> plants = new List<PositionedPlant>();
+        List<PositionedPlant> placedPlants = new List<PositionedPlant>();
+
+        static long GetXDist(in Plant p1, in Plant p2)
+        {
+            return Math.Max(p1.Totavv, p2.Totavv);
+        }
+        static long GetYDist(in Plant p1, in Plant p2)
+        {
+            return Math.Max(p1.Sortavv, p2.Sortavv);
+        }
 
         private void SolveButton_Click(object sender, RoutedEventArgs e)
         {
+            var plantsToPlace = new List<Plant>();
             foreach (var plantCnt in PlantList.Items)
             {
                 var count = (plantCnt as dynamic).amount;
+                for (int i = 0; i < count; i++)
+                {
+                    plantsToPlace.Add((plantCnt as dynamic).plant);
+                }
             }
+
+            if (plantsToPlace.Count == 0)
+                return;
+
+            {
+                var p = plantsToPlace.PopFirst();
+                placedPlants.Add(new PositionedPlant(p, (int)p.Totavv/2, (int)p.Sortavv/2));
+
+                long currX = 0;
+                long currY = 0;
+                while (plantsToPlace.Count > 0)
+                {
+                    var p1 = plantsToPlace.PopFirst();
+                    currX += (int)placedPlants.Last().plant.Totavv / 2 + (int)p1.Totavv / 2;
+                    placedPlants.Add(new PositionedPlant(p1,
+                        (int)currX,
+                        (int)p1.Sortavv/2));
+                    if (currX > GardenWidth)
+                    {
+                        currX = p1.Totavv/2;
+                        currY += p1.Sortavv / 2;
+                    }
+                }
+            }
+
+            RedrawCanvas();
         }
     }
 
     struct PositionedPlant
     {
-        Plant plant;
-        int x;
-        int y;
+        public Plant plant;
+        public int x;
+        public int y;
 
         public PositionedPlant(in Plant p, int x, int y)
         {
             this.plant = p;
             this.x = x;
             this.y = y;
+        }
+    }
+
+    static class ListExtension
+    {
+        public static T PopFirst<T>(this List<T> list)
+        {
+            T r = list[0];
+            list.RemoveAt(0);
+            return r;
         }
     }
 }
