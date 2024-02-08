@@ -64,7 +64,8 @@ namespace garden_planner
                     plant,
                     bad = false,
                     good = false,
-                    amount
+                    amount,
+                    hasAmount = amount > 0
                 };
                 PlantList.Items.Add(item);
             }
@@ -150,7 +151,8 @@ namespace garden_planner
                         good = true,
                         bad = false,
                         plant,
-                        amount
+                        amount,
+                        hasAmount = amount > 0
                     };
                 }
                 else if (bads.Contains(plant.Id))
@@ -160,7 +162,8 @@ namespace garden_planner
                         good = false,
                         bad = true,
                         plant,
-                        amount
+                        amount,
+                        hasAmount = amount > 0
                     };
                 }
                 else
@@ -172,7 +175,8 @@ namespace garden_planner
                             good = false,
                             bad = false,
                             plant,
-                            amount
+                            amount,
+                            hasAmount = amount > 0
                         };
                     }
                 }

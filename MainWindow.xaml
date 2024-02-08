@@ -33,6 +33,9 @@
                                 <DataTrigger Binding="{Binding good}" Value="true">
                                     <Setter Property="Foreground" Value="LightGreen"/>
                                 </DataTrigger>
+                                <DataTrigger Binding="{Binding hasAmount}" Value="true">
+                                    <Setter Property="Background" Value="#c1dbf7"/>
+                                </DataTrigger>
                             </Style.Triggers>
                         </Style>
                     </ListView.Resources>
