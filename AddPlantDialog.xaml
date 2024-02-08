@@ -78,12 +78,24 @@
                 </Style>
             </Grid.Resources>
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">Rossz szomszédok:</Label>
-            <ListBox x:Name="BadNeighsListBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></ListBox>
+            <ListBox x:Name="BadNeighsListBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Törlés" Click="BadNeighsDelete_Click"></MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
             <ComboBox x:Name="BadNeighsCombo" Grid.Row="2" Grid.Column="0" SelectionChanged="BadNeighsCombo_SelectionChanged"></ComboBox>
             <Button x:Name="BadNeighsBtn" Grid.Row="2" Grid.Column="1" IsEnabled="False" Click="BadNeigsBtn_Click">Hozzáadás</Button>
 
             <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">Jó szomszédok:</Label>
-            <ListBox x:Name="GoodNeighsListBox" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"></ListBox>
+            <ListBox x:Name="GoodNeighsListBox" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Törlés" Click="GoodNeighsDelete_Click"></MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
             <ComboBox x:Name="GoodNeighsCombo" Grid.Row="2" Grid.Column="3" SelectionChanged="GoodNeighsCombo_SelectionChanged"></ComboBox>
             <Button x:Name="GoodNeighsBtn" Grid.Row="2" Grid.Column="4" IsEnabled="False" Click="GoodNeigsBtn_Click">Hozzáadás</Button>
         </Grid>
