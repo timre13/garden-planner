@@ -69,7 +69,7 @@ namespace garden_planner
                     plant,
                     bad = false,
                     good = false,
-                    amount = (plant.Id % 16 == 0 ? 4 : 0)
+                    amount = (plant.Id % 8 == 0 ? 4 : 0)
                 };
                 PlantList.Items.Add(item);
             }
@@ -197,6 +197,7 @@ namespace garden_planner
 
         private void RedrawCanvas()
         {
+            canvasWrapper.ClearCanvas();
             foreach (var p in placedPlants)
             {
                 canvasWrapper.DrawPlant(p.plant, p.x, p.y);
@@ -212,6 +213,12 @@ namespace garden_planner
         static long GetYDist(in Plant p1, in Plant p2)
         {
             return Math.Max(p1.Sortavv, p2.Sortavv);
+        }
+
+        static bool AreHorizOverlapping(in PositionedPlant p1, in PositionedPlant p2)
+        {
+            return p2.LefX >= p1.LefX && p2.LefX <= p1.RightX
+                && p2.RightX >= p1.LefX && p2.RightX <= p1.RightX;
         }
 
         private void SolveButton_Click(object sender, RoutedEventArgs e)
@@ -233,19 +240,17 @@ namespace garden_planner
                 var p = plantsToPlace.PopFirst();
                 placedPlants.Add(new PositionedPlant(p, (int)p.Totavv/2, (int)p.Sortavv/2));
 
-                long currX = 0;
-                long currY = 0;
+                long currX = (int)p.Totavv / 2;
+                long currY = (int)p.Sortavv / 2;
+
                 while (plantsToPlace.Count > 0)
                 {
                     var p1 = plantsToPlace.PopFirst();
                     currX += (int)placedPlants.Last().plant.Totavv / 2 + (int)p1.Totavv / 2;
-                    placedPlants.Add(new PositionedPlant(p1,
-                        (int)currX,
-                        (int)p1.Sortavv/2));
-                    if (currX > GardenWidth)
+                    placedPlants.Add(new PositionedPlant(p1, (int)currX, (int)currY));
+                    if (currX+p1.Totavv/2 > GardenWidth)
                     {
                         currX = p1.Totavv/2;
-                        currY += p1.Sortavv / 2;
                     }
                 }
             }
@@ -259,6 +264,11 @@ namespace garden_planner
         public Plant plant;
         public int x;
         public int y;
+
+        public readonly long LefX => x - plant.Totavv/2;
+        public readonly long TopY => y - plant.Sortavv/2;
+        public readonly long RightX => x + plant.Totavv / 2;
+        public readonly long BottomY => y + plant.Sortavv / 2;
 
         public PositionedPlant(in Plant p, int x, int y)
         {

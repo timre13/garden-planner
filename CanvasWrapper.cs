@@ -35,6 +35,11 @@ namespace garden_planner
             canvas.Children.Add(borderRect);
         }
 
+        public void ClearCanvas()
+        {
+            canvas.Children.Clear();
+        }
+
         public void DrawPlant(in Plant plant, int x, int y)
         {
             var c1 = ((Color)ColorConverter.ConvertFromString(plant.Color));
