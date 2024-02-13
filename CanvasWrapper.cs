@@ -38,6 +38,28 @@ namespace garden_planner
         public void ClearCanvas()
         {
             canvas.Children.Clear();
+            var clearRect = new Rectangle() { 
+                Width = canvas.ActualWidth,
+                Height = canvas.ActualHeight,
+                Fill = System.Windows.Media.Brushes.White,
+                StrokeThickness = 1,
+            };
+            Canvas.SetLeft(clearRect, 0);
+            Canvas.SetTop(clearRect, 0);
+            canvas.Children.Add(clearRect);
+        }
+
+        public void DrawBorder(bool red = false)
+        {
+            var borderRect = new Rectangle() { 
+                Width = canvas.ActualWidth,
+                Height = canvas.ActualHeight,
+                Stroke = red ? Brushes.Crimson : Brushes.Black,
+                StrokeThickness = 1
+            };
+            Canvas.SetLeft(borderRect, 0);
+            Canvas.SetTop(borderRect, 0);
+            canvas.Children.Add(borderRect);
         }
 
         public void DrawPlant(in Plant plant, int x, int y)
@@ -46,27 +68,27 @@ namespace garden_planner
             c1.A = 100;
             var shape1 = new Rectangle()
             {
-                Width = plant.Totavv,
-                Height = plant.Sortavv,
+                Width = plant.Totavv * 2,
+                Height = plant.Sortavv * 2,
                 Fill = new SolidColorBrush(c1),
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1
             };
-            Canvas.SetLeft(shape1, (x - plant.Totavv / 2));
-            Canvas.SetTop(shape1, (y - plant.Sortavv / 2));
+            Canvas.SetLeft(shape1, (x - plant.Totavv));
+            Canvas.SetTop(shape1, (y - plant.Sortavv));
             canvas.Children.Add(shape1);
 
-            var shape = new Ellipse
-            {
-                Width = plant.Sortav ?? 10,
-                Height = plant.Sortav ?? 10,
-                Fill = new SolidColorBrush(c1),
-                Stroke = new SolidColorBrush(Colors.Black),
-                StrokeThickness = 1
-            };
-            Canvas.SetLeft(shape, (double)(x - plant.Sortav! / 2));
-            Canvas.SetTop(shape, (double)(y - plant.Sortav! / 2));
-            canvas.Children.Add(shape);
+            // var shape = new Ellipse
+            // {
+            //     Width = plant.Sortav * 2 ?? 10,
+            //     Height = plant.Sortav * 2?? 10,
+            //     Fill = new SolidColorBrush(c1),
+            //     Stroke = new SolidColorBrush(Colors.Black),
+            //     StrokeThickness = 1
+            // };
+            // Canvas.SetLeft(shape, (double)(x - plant.Sortav!));
+            // Canvas.SetTop(shape, (double)(y - plant.Sortav!));
+            // canvas.Children.Add(shape);
 
             var line1 = new Line()
             {

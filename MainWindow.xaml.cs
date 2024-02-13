@@ -26,6 +26,8 @@ namespace garden_planner
         public int GardenWidth;
         public int GardenHeight;
 
+        private bool canvasError = false;
+
         public MainWindow()
         {
             /*
@@ -69,7 +71,7 @@ namespace garden_planner
                     plant,
                     bad = false,
                     good = false,
-                    amount = (plant.Id % 8 == 0 ? 4 : 0)
+                    amount = amount
                 };
                 PlantList.Items.Add(item);
             }
@@ -202,6 +204,7 @@ namespace garden_planner
             {
                 canvasWrapper.DrawPlant(p.plant, p.x, p.y);
             }
+            canvasWrapper.DrawBorder(canvasError);
         }
 
         List<PositionedPlant> placedPlants = new List<PositionedPlant>();
@@ -223,35 +226,110 @@ namespace garden_planner
 
         private void SolveButton_Click(object sender, RoutedEventArgs e)
         {
-            var plantsToPlace = new List<Plant>();
+            placedPlants.Clear();
+            canvasError = false;
+            var unorderedPlantsToPlace = new List<Plant>();
             foreach (var plantCnt in PlantList.Items)
             {
-                var count = (plantCnt as dynamic).amount;
+                int count = (plantCnt as dynamic).amount;
                 for (int i = 0; i < count; i++)
                 {
-                    plantsToPlace.Add((plantCnt as dynamic).plant);
+                    unorderedPlantsToPlace.Add((plantCnt as dynamic).plant);
                 }
             }
 
-            if (plantsToPlace.Count == 0)
+            if (unorderedPlantsToPlace.Count == 0)
                 return;
+            
+            var plantsToPlace = new List<Plant>();
+            
+            plantsToPlace.Add(unorderedPlantsToPlace.PopFirst());
+            bool noGoods = false;
+            bool onlyBads = false;
+            int index = 0;
+            while (unorderedPlantsToPlace.Count > 0)
+            {
+                if (index > unorderedPlantsToPlace.Count - 1)
+                {
+                    if (noGoods)
+                    {
+                        onlyBads = true;
+                    }
+                    else
+                    {
+                        noGoods = true;
+                    }
+                    index = 0;
+                    continue;
+                }
+                Plant p = unorderedPlantsToPlace[index];
+                var goodNeihbours = Database.GetNeighIds(p.Id, true);
+                var badNeihbours = Database.GetNeighIds(p.Id, false);
+                if (noGoods)
+                {
+                    if (onlyBads)
+                    {
+                        plantsToPlace.Add(unorderedPlantsToPlace.PopFirst());
+                        index = 0;
+                        onlyBads = false;
+                        noGoods = false;
+                        continue;
+                    }
+                    if (!badNeihbours.Contains(plantsToPlace.Last().Id))
+                    {
+                        plantsToPlace.Add(p);
+                        unorderedPlantsToPlace.RemoveAt(index);
+                        index = 0;
+                        noGoods = false;
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (goodNeihbours.Contains(plantsToPlace.Last().Id))
+                    {
+                        plantsToPlace.Add(p);
+                        unorderedPlantsToPlace.RemoveAt(index);
+                        index = 0;
+                        continue;
+                    }
+                }
+                index++;
+            }
 
             {
                 var p = plantsToPlace.PopFirst();
-                placedPlants.Add(new PositionedPlant(p, (int)p.Totavv/2, (int)p.Sortavv/2));
+                placedPlants.Add(new PositionedPlant(p, (int)p.Totavv, (int)p.Sortavv));
 
-                long currX = (int)p.Totavv / 2;
-                long currY = (int)p.Sortavv / 2;
+                long currX = (int)p.Totavv;
+                long currY = 0;
+
+                long mostSorTav = p.Sortavv;
+                long lineWidth = p.Totavv * 2;
 
                 while (plantsToPlace.Count > 0)
                 {
                     var p1 = plantsToPlace.PopFirst();
-                    currX += (int)placedPlants.Last().plant.Totavv / 2 + (int)p1.Totavv / 2;
-                    placedPlants.Add(new PositionedPlant(p1, (int)currX, (int)currY));
-                    if (currX+p1.Totavv/2 > GardenWidth)
+                    
+                    currX += (int)placedPlants.Last().plant.Totavv + (int)p1.Totavv;
+                    lineWidth += p1.Totavv * 2;
+                    if (lineWidth > mainCanvas.ActualWidth)
                     {
-                        currX = p1.Totavv/2;
+                        currX = p1.Totavv;
+                        currY += (int)(mostSorTav);
+                        lineWidth = p1.Totavv * 2;
+                        mostSorTav = 0;
                     }
+                    if (p1.Sortavv * 2 > mostSorTav)
+                    {
+                        mostSorTav = p1.Sortavv * 2;
+                    }
+                    if (currY + p1.Sortavv > mainCanvas.ActualHeight)
+                    {
+                        canvasError = true;
+                        break;
+                    }
+                    placedPlants.Add(new PositionedPlant(p1, (int)currX, (int)currY + (int)p1.Sortavv));
                 }
             }
 
