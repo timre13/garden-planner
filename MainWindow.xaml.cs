@@ -342,7 +342,7 @@ namespace garden_planner
                     {
                         mostSorTav = p1.Sortavv * 2;
                     }
-                    if (currY + p1.Sortavv > mainCanvas.ActualHeight)
+                    if (currY + p1.Sortavv * 2 > mainCanvas.ActualHeight)
                     {
                         canvasError = true;
                         break;
