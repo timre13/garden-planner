@@ -26,8 +26,11 @@ namespace garden_planner
         public int GardenWidth;
         public int GardenHeight;
 
+        private bool canvasError = false;
+
         public MainWindow()
         {
+            /*
             var dlg = new SizeDialog();
             dlg.ShowDialog();
 
@@ -39,6 +42,10 @@ namespace garden_planner
 
             GardenWidth = (int)dlg.WidthValue;
             GardenHeight = (int)dlg.HeightValue;
+            */
+
+            GardenWidth = (int)10000;
+            GardenHeight = (int)10000;
 
             InitializeComponent();
         }
@@ -69,8 +76,6 @@ namespace garden_planner
                 };
                 PlantList.Items.Add(item);
             }
-
-
         }
 
         private void PlantList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -206,6 +211,176 @@ namespace garden_planner
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
         {
             canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
+            RedrawCanvas();
+            SolveButton_Click(null, null);
+        }
+
+        private void RedrawCanvas()
+        {
+            canvasWrapper.ClearCanvas();
+            foreach (var p in placedPlants)
+            {
+                canvasWrapper.DrawPlant(p.plant, p.x, p.y);
+            }
+            canvasWrapper.DrawBorder(canvasError);
+        }
+
+        List<PositionedPlant> placedPlants = new List<PositionedPlant>();
+
+        static long GetXDist(in Plant p1, in Plant p2)
+        {
+            return Math.Max(p1.Totavv, p2.Totavv);
+        }
+        static long GetYDist(in Plant p1, in Plant p2)
+        {
+            return Math.Max(p1.Sortavv, p2.Sortavv);
+        }
+
+        static bool AreHorizOverlapping(in PositionedPlant p1, in PositionedPlant p2)
+        {
+            return p2.LefX >= p1.LefX && p2.LefX <= p1.RightX
+                && p2.RightX >= p1.LefX && p2.RightX <= p1.RightX;
+        }
+
+        private void SolveButton_Click(object sender, RoutedEventArgs e)
+        {
+            placedPlants.Clear();
+            canvasError = false;
+            var unorderedPlantsToPlace = new List<Plant>();
+            foreach (var plantCnt in PlantList.Items)
+            {
+                int count = (plantCnt as dynamic).amount;
+                for (int i = 0; i < count; i++)
+                {
+                    unorderedPlantsToPlace.Add((plantCnt as dynamic).plant);
+                }
+            }
+
+            if (unorderedPlantsToPlace.Count == 0)
+                return;
+            
+            var plantsToPlace = new List<Plant>();
+            
+            plantsToPlace.Add(unorderedPlantsToPlace.PopFirst());
+            bool noGoods = false;
+            bool onlyBads = false;
+            int index = 0;
+            while (unorderedPlantsToPlace.Count > 0)
+            {
+                if (index > unorderedPlantsToPlace.Count - 1)
+                {
+                    if (noGoods)
+                    {
+                        onlyBads = true;
+                    }
+                    else
+                    {
+                        noGoods = true;
+                    }
+                    index = 0;
+                    continue;
+                }
+                Plant p = unorderedPlantsToPlace[index];
+                var goodNeihbours = Database.GetNeighIds(p.Id, true);
+                var badNeihbours = Database.GetNeighIds(p.Id, false);
+                if (noGoods)
+                {
+                    if (onlyBads)
+                    {
+                        plantsToPlace.Add(unorderedPlantsToPlace.PopFirst());
+                        index = 0;
+                        onlyBads = false;
+                        noGoods = false;
+                        continue;
+                    }
+                    if (!badNeihbours.Contains(plantsToPlace.Last().Id))
+                    {
+                        plantsToPlace.Add(p);
+                        unorderedPlantsToPlace.RemoveAt(index);
+                        index = 0;
+                        noGoods = false;
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (goodNeihbours.Contains(plantsToPlace.Last().Id))
+                    {
+                        plantsToPlace.Add(p);
+                        unorderedPlantsToPlace.RemoveAt(index);
+                        index = 0;
+                        continue;
+                    }
+                }
+                index++;
+            }
+
+            {
+                var p = plantsToPlace.PopFirst();
+                placedPlants.Add(new PositionedPlant(p, (int)p.Totavv, (int)p.Sortavv));
+
+                long currX = (int)p.Totavv;
+                long currY = 0;
+
+                long mostSorTav = p.Sortavv;
+                long lineWidth = p.Totavv * 2;
+
+                while (plantsToPlace.Count > 0)
+                {
+                    var p1 = plantsToPlace.PopFirst();
+                    
+                    currX += (int)placedPlants.Last().plant.Totavv + (int)p1.Totavv;
+                    lineWidth += p1.Totavv * 2;
+                    if (lineWidth > mainCanvas.ActualWidth)
+                    {
+                        currX = p1.Totavv;
+                        currY += (int)(mostSorTav);
+                        lineWidth = p1.Totavv * 2;
+                        mostSorTav = 0;
+                    }
+                    if (p1.Sortavv * 2 > mostSorTav)
+                    {
+                        mostSorTav = p1.Sortavv * 2;
+                    }
+                    if (currY + p1.Sortavv > mainCanvas.ActualHeight)
+                    {
+                        canvasError = true;
+                        break;
+                    }
+                    placedPlants.Add(new PositionedPlant(p1, (int)currX, (int)currY + (int)p1.Sortavv));
+                }
+            }
+
+            RedrawCanvas();
+        }
+    }
+
+    struct PositionedPlant
+    {
+        public Plant plant;
+        public int x;
+        public int y;
+
+        public readonly long LefX => x - plant.Totavv/2;
+        public readonly long TopY => y - plant.Sortavv/2;
+        public readonly long RightX => x + plant.Totavv / 2;
+        public readonly long BottomY => y + plant.Sortavv / 2;
+
+        public PositionedPlant(in Plant p, int x, int y)
+        {
+            this.plant = p;
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    static class ListExtension
+    {
+        public static T PopFirst<T>(this List<T> list)
+        {
+            T r = list[0];
+            list.RemoveAt(0);
+            return r;
         }
     }
 }
