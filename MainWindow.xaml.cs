@@ -1,32 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace garden_planner
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         CanvasWrapper? canvasWrapper;
 
         public int GardenWidth;
         public int GardenHeight;
 
-        private bool canvasError = false;
+        private bool canvasError;
 
         public MainWindow()
         {
@@ -44,8 +34,8 @@ namespace garden_planner
             GardenHeight = (int)dlg.HeightValue;
             */
 
-            GardenWidth = (int)10000;
-            GardenHeight = (int)10000;
+            GardenWidth = 10000;
+            GardenHeight = 10000;
 
             InitializeComponent();
         }
@@ -59,30 +49,28 @@ namespace garden_planner
 
             foreach (var plant in plants)
             {
-                if (plant == null) continue;
                 int amount = 0;
-                if (plantAmounts.ContainsKey(plant.Id))
+                if (plantAmounts.TryGetValue(plant.Id, out var plantAmount))
                 {
-                    amount = plantAmounts[plant.Id];
+                    amount = plantAmount;
                 }
-
-                var item = new
-                {
+                
+                var item = new PlantListItem(
                     plant,
-                    bad = false,
-                    good = false,
+                    false,
+                    false,
                     amount,
-                    hasAmount = amount > 0
-                };
+                    amount > 0
+                );
+                
                 PlantList.Items.Add(item);
             }
         }
 
         private void PlantList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentItemI = PlantList.SelectedIndex;
-            dynamic currentItem = PlantList.SelectedItem;
-            if (currentItem?.plant == null) return;
+            if (PlantList.SelectedItem == null) return;
+            PlantListItem currentItem = (PlantListItem)PlantList.SelectedItem;
             MenuUpDown.Value = currentItem.amount;
             RefreshPlantList();
         }
@@ -90,24 +78,20 @@ namespace garden_planner
         private void AddPlantButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new AddPlantDialog();
-            dialog.Closed += (s, e) => PlantList_Loaded(new object(), new RoutedEventArgs());
+            dialog.Closed += (_, _) => PlantList_Loaded(new object(), new RoutedEventArgs());
             dialog.ShowDialog();
         }
 
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            var currentItemI = PlantList.SelectedIndex;
-            dynamic currentItem = PlantList.SelectedItem;
-            if (currentItem?.plant == null) return;
+            PlantListItem currentItem = (PlantListItem)PlantList.SelectedItem;
             Plant selectedPlant = currentItem.plant;
             Database.RemovePlantDefinitionById(selectedPlant.Id);
         }
 
         private void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
-            var currentItemI = PlantList.SelectedIndex;
-            dynamic currentItem = PlantList.SelectedItem;
-            if (currentItem?.plant == null) return;
+            PlantListItem currentItem = (PlantListItem)PlantList.SelectedItem;
             Plant selectedPlant = currentItem.plant;
             var dialog = new AddPlantDialog(
                 selectedPlant.Name,
@@ -118,85 +102,73 @@ namespace garden_planner
                 Database.GetNeighs(selectedPlant.Id, true).Select(x => x.Name).ToList(),
                 Database.GetNeighs(selectedPlant.Id, false).Select(x => x.Name).ToList()
             );
-            dialog.Closed += (s, e) => PlantList_Loaded(new object(), new RoutedEventArgs());
+            dialog.Closed += (_, _) => PlantList_Loaded(new object(), new RoutedEventArgs());
             dialog.ShowDialog();
         }
 
-        private Dictionary<long, int> plantAmounts = new Dictionary<long, int>();
+        private readonly Dictionary<long, int> plantAmounts = new Dictionary<long, int>();
 
         private void MenuIntegerUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var currentItemI = PlantList.SelectedIndex;
-            dynamic currentItem = PlantList.SelectedItem;
-            if (currentItem?.plant == null) return;
+            if (PlantList.SelectedItem == null) return;
+            var currentItem = (PlantListItem)PlantList.SelectedItem;
             Plant selectedPlant = currentItem.plant;
             if (MenuUpDown.Value == null)
             {
                 return;
             }
-            if (plantAmounts.ContainsKey(selectedPlant.Id))
-            {
-                plantAmounts[selectedPlant.Id] = (int)MenuUpDown.Value;
-            }
-            else
-            {
-                plantAmounts.Add(selectedPlant.Id, (int)MenuUpDown.Value);
-            }
+            plantAmounts[selectedPlant.Id] = (int)MenuUpDown.Value;
         }
 
         private void RefreshPlantList()
         {
             var currentItemI = PlantList.SelectedIndex;
-            dynamic currentItem = PlantList.SelectedItem;
-            if (currentItem?.plant == null) return;
+            if (PlantList.SelectedItem == null) return;
+            var currentItem = (PlantListItem)PlantList.SelectedItem;
             Plant selectedPlant = currentItem.plant;
             var goods = Database.GetNeighIds(selectedPlant.Id, true);
             var bads = Database.GetNeighIds(selectedPlant.Id, false);
             for (int i = 0; i < PlantList.Items.Count; i++)
             {
-                var item = PlantList.Items[i];
-                var plant = (Plant)((dynamic)item).plant;
-                if (plant == null) continue;
+                var item = (PlantListItem)PlantList.Items[i];
+                var plant = item.plant;
                 int amount = 0;
-                if (plantAmounts.ContainsKey(plant.Id))
+                if (plantAmounts.TryGetValue(plant.Id, out var plantAmount))
                 {
-                    amount = plantAmounts[plant.Id];
+                    amount = plantAmount;
                 }
 
                 if (goods.Contains(plant.Id))
                 {
-                    PlantList.Items[i] = new
-                    {
-                        good = true,
-                        bad = false,
+                    PlantList.Items[i] = new PlantListItem(
                         plant,
+                        true,
+                        false,
                         amount,
-                        hasAmount = amount > 0
-                    };
+                        amount > 0
+                    );
                 }
                 else if (bads.Contains(plant.Id))
                 {
-                    PlantList.Items[i] = new
-                    {
-                        good = false,
-                        bad = true,
+                    PlantList.Items[i] = new PlantListItem(
                         plant,
+                        false,
+                        true,
                         amount,
-                        hasAmount = amount > 0
-                    };
+                        amount > 0
+                        );
                 }
                 else
                 {
-                    if (((dynamic)item).good || ((dynamic)item).bad)
+                    if (item.good || item.bad)
                     {
-                        PlantList.Items[i] = new
-                        {
-                            good = false,
-                            bad = false,
+                        PlantList.Items[i] = new PlantListItem(
                             plant,
+                            false,
+                            false,
                             amount,
-                            hasAmount = amount > 0
-                        };
+                            amount > 0
+                            );
                     }
                 }
             }
@@ -212,11 +184,12 @@ namespace garden_planner
         {
             canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
             RedrawCanvas();
-            SolveButton_Click(null, null);
+            SolveButton_Click(new object(), new RoutedEventArgs());
         }
 
         private void RedrawCanvas()
         {
+            if (canvasWrapper == null) return;
             canvasWrapper.ClearCanvas();
             foreach (var p in placedPlants)
             {
@@ -225,43 +198,27 @@ namespace garden_planner
             canvasWrapper.DrawBorder(canvasError);
         }
 
-        List<PositionedPlant> placedPlants = new List<PositionedPlant>();
-
-        static long GetXDist(in Plant p1, in Plant p2)
-        {
-            return Math.Max(p1.Totavv, p2.Totavv);
-        }
-        static long GetYDist(in Plant p1, in Plant p2)
-        {
-            return Math.Max(p1.Sortavv, p2.Sortavv);
-        }
-
-        static bool AreHorizOverlapping(in PositionedPlant p1, in PositionedPlant p2)
-        {
-            return p2.LefX >= p1.LefX && p2.LefX <= p1.RightX
-                && p2.RightX >= p1.LefX && p2.RightX <= p1.RightX;
-        }
+        readonly List<PositionedPlant> placedPlants = new List<PositionedPlant>();
 
         private void SolveButton_Click(object sender, RoutedEventArgs e)
         {
             placedPlants.Clear();
             canvasError = false;
             var unorderedPlantsToPlace = new List<Plant>();
-            foreach (var plantCnt in PlantList.Items)
+            foreach (PlantListItem plantCnt in PlantList.Items)
             {
-                int count = (plantCnt as dynamic).amount;
+                int count = plantCnt.amount;
                 for (int i = 0; i < count; i++)
                 {
-                    unorderedPlantsToPlace.Add((plantCnt as dynamic).plant);
+                    unorderedPlantsToPlace.Add(plantCnt.plant);
                 }
             }
 
             if (unorderedPlantsToPlace.Count == 0)
                 return;
             
-            var plantsToPlace = new List<Plant>();
-            
-            plantsToPlace.Add(unorderedPlantsToPlace.PopFirst());
+            var plantsToPlace = new List<Plant> { unorderedPlantsToPlace.PopFirst() };
+
             bool noGoods = false;
             bool onlyBads = false;
             int index = 0;
@@ -357,9 +314,9 @@ namespace garden_planner
 
     struct PositionedPlant
     {
-        public Plant plant;
-        public int x;
-        public int y;
+        public readonly Plant plant;
+        public readonly int x;
+        public readonly int y;
 
         public readonly long LefX => x - plant.Totavv/2;
         public readonly long TopY => y - plant.Sortavv/2;
