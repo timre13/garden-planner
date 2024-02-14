@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Width="1500" Height="800"
         ResizeMode="NoResize"
+        Background="#EEEEEE"
         >
     <Grid>
         <Grid.ColumnDefinitions>
@@ -24,7 +25,14 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ListView  Grid.Row="0" x:Name="PlantList" Loaded="PlantList_Loaded" SelectionChanged="PlantList_SelectionChanged" SelectionMode="Single">
+                <ListView 
+                    Grid.Row="0"
+                    x:Name="PlantList"
+                    Loaded="PlantList_Loaded"
+                    SelectionChanged="PlantList_SelectionChanged"
+                    SelectionMode="Single"
+                    Background="#EEEEEE"
+                >
                     <ListView.DataContext>
                         <local:PlantListItem></local:PlantListItem>
                     </ListView.DataContext>
