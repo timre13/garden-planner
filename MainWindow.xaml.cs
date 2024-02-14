@@ -13,14 +13,13 @@ namespace garden_planner
     {
         CanvasWrapper? canvasWrapper;
 
-        public int GardenWidth;
-        public int GardenHeight;
+        readonly int GardenWidth;
+        readonly int GardenHeight;
 
         private bool canvasError;
 
         public MainWindow()
         {
-            /*
             var dlg = new SizeDialog();
             dlg.ShowDialog();
 
@@ -32,10 +31,6 @@ namespace garden_planner
 
             GardenWidth = (int)dlg.WidthValue;
             GardenHeight = (int)dlg.HeightValue;
-            */
-
-            GardenWidth = 10000;
-            GardenHeight = 10000;
 
             InitializeComponent();
         }
@@ -288,7 +283,7 @@ namespace garden_planner
                     
                     currX += (int)placedPlants.Last().plant.Totavv + (int)p1.Totavv;
                     lineWidth += p1.Totavv * 2;
-                    if (lineWidth > mainCanvas.ActualWidth)
+                    if (lineWidth > GardenWidth)
                     {
                         currX = p1.Totavv;
                         currY += (int)(mostSorTav);
@@ -299,7 +294,7 @@ namespace garden_planner
                     {
                         mostSorTav = p1.Sortavv * 2;
                     }
-                    if (currY + p1.Sortavv * 2 > mainCanvas.ActualHeight)
+                    if (currY + p1.Sortavv * 2 > GardenHeight)
                     {
                         canvasError = true;
                         break;

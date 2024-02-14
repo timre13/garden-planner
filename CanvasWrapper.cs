@@ -23,10 +23,10 @@ namespace garden_planner
         private float heightRatio = 1;
         private float widthRatio = 1;
 
-        public CanvasWrapper(Canvas canvas, int fieldWidth, int fieldHeight) {
+        public CanvasWrapper(Canvas canvas, int localFieldWidth, int localFieldHeight) {
             this.canvas = canvas;
-            this.fieldWidth = fieldWidth;
-            this.fieldHeight = fieldHeight;
+            this.fieldWidth = localFieldWidth;
+            this.fieldHeight = localFieldHeight;
             ratio = fieldWidth / fieldHeight;
 
             Debug.WriteLine(((float)canvas.ActualHeight / (float)fieldHeight));
@@ -35,50 +35,55 @@ namespace garden_planner
             if (canvas.ActualWidth < fieldWidth)
             {
                 fieldHeight = (int)(fieldHeight * ((float)canvas.ActualWidth / (float)fieldWidth));
-                heightRatio = (float)canvas.ActualWidth / (float)fieldWidth;
+                // heightRatio = (float)canvas.ActualWidth / (float)fieldWidth;
                 fieldWidth = (int)canvas.ActualWidth;
+                widthRatio = (float)fieldHeight / (float)canvas.ActualHeight;
+                heightRatio = (float)canvas.ActualWidth / (float)localFieldWidth;
             }
             if (canvas.ActualHeight < fieldHeight)
             {
                 fieldWidth = (int)(fieldWidth * ((float)canvas.ActualHeight / (float)fieldHeight));
-                widthRatio = (float)canvas.ActualHeight / (float)fieldHeight;
+                // widthRatio = (float)canvas.ActualHeight / (float)fieldHeight;
+                // heightRatio = (float)canvas.ActualWidth / (float)fieldWidth;
                 fieldHeight = (int)canvas.ActualHeight;
+                widthRatio = (float)canvas.ActualHeight / (float)localFieldHeight;
+                heightRatio = (float)fieldWidth / (float)canvas.ActualWidth;
             }
             Debug.WriteLine($"{canvas.ActualWidth}x{canvas.ActualHeight}");
            
 
 
-            this.canvas.Children.Clear();
-            var borderRect = new Rectangle() { 
-                Width = fieldWidth,
-                Height = fieldHeight,
-                Stroke = Brushes.Black,
-                StrokeThickness = 1
-            };
-            Canvas.SetLeft(borderRect, 0);
-            Canvas.SetTop(borderRect, 0);
-            canvas.Children.Add(borderRect);
+            // this.canvas.Children.Clear();
+            // var borderRect = new Rectangle() { 
+            //     Width = this.fieldWidth,
+            //     Height = this.fieldHeight,
+            //     Stroke = Brushes.Black,
+            //     StrokeThickness = 1
+            // };
+            // Canvas.SetLeft(borderRect, 0);
+            // Canvas.SetTop(borderRect, 0);
+            // canvas.Children.Add(borderRect);
         }
 
         public void ClearCanvas()
         {
             canvas.Children.Clear();
-            var clearRect = new Rectangle() { 
-                Width = canvas.ActualWidth,
-                Height = canvas.ActualHeight,
-                Fill = Brushes.White,
-                StrokeThickness = 1,
-            };
-            Canvas.SetLeft(clearRect, 0);
-            Canvas.SetTop(clearRect, 0);
-            canvas.Children.Add(clearRect);
+            // var clearRect = new Rectangle() { 
+            //     Width = canvas.ActualWidth,
+            //     Height = canvas.ActualHeight,
+            //     Fill = Brushes.White,
+            //     StrokeThickness = 1,
+            // };
+            // Canvas.SetLeft(clearRect, 0);
+            // Canvas.SetTop(clearRect, 0);
+            // canvas.Children.Add(clearRect);
         }
 
         public void DrawBorder(bool red = false)
         {
             var borderRect = new Rectangle() { 
-                Width = canvas.ActualWidth,
-                Height = canvas.ActualHeight,
+                Width = fieldWidth,
+                Height = fieldHeight,
                 Stroke = red ? Brushes.Crimson : Brushes.Black,
                 StrokeThickness = 1
             };
@@ -107,14 +112,14 @@ namespace garden_planner
             c1.A = 100;
             var shape1 = new Rectangle()
             {
-                Width = plant.Totavv * 2,
-                Height = plant.Sortavv * 2,
+                Width = plant.Totavv * 2 * widthRatio,
+                Height = plant.Sortavv * 2 * heightRatio,
                 Fill = new SolidColorBrush(c1),
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1
             };
-            Canvas.SetLeft(shape1, (x - plant.Totavv));
-            Canvas.SetTop(shape1, (y - plant.Sortavv));
+            Canvas.SetLeft(shape1, (x - plant.Totavv) * widthRatio);
+            Canvas.SetTop(shape1, (y - plant.Sortavv) * heightRatio);
             canvas.Children.Add(shape1);
 
             // var shape = new Ellipse
@@ -131,10 +136,10 @@ namespace garden_planner
 
             var line1 = new Line()
             {
-                X1 = x-5,
-                Y1 = y-5,
-                X2 = x+5,
-                Y2 = y+5,
+                X1 = (x * widthRatio) - 5 * widthRatio,
+                Y1 = (y * heightRatio) - 5 * heightRatio,
+                X2 = (x * widthRatio) + 5 * widthRatio,
+                Y2 = (y * heightRatio) + 5 * heightRatio,
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1
             };
@@ -142,10 +147,10 @@ namespace garden_planner
 
             var line2 = new Line()
             {
-                X1 = x - 5,
-                Y1 = y + 5,
-                X2 = x + 5,
-                Y2 = y - 5,
+                X1 = (x * widthRatio) + 5 * widthRatio,
+                Y1 = (y * heightRatio) - 5 * heightRatio,
+                X2 = (x * widthRatio) - 5 * widthRatio,
+                Y2 = (y * heightRatio) + 5 * heightRatio,
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1
             };
