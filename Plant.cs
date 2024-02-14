@@ -40,8 +40,8 @@ namespace garden_planner
 
             var id = reader.GetInt64(index++);
             var name = reader.GetString(index++);
-            var sortav = Database.GetValOrNull<long>(reader, index++)*2;
-            var totav = Database.GetValOrNull<long>(reader, index++)*2;
+            var sortav = Database.GetValOrNull<long>(reader, index++);
+            var totav = Database.GetValOrNull<long>(reader, index++);
             var color = Database.GetValOrNull<string>(reader, index++);
 
             return new Plant(id, name, sortav, totav, color);

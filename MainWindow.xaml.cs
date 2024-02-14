@@ -42,9 +42,6 @@ namespace garden_planner
             GardenHeight = (int)dlg.HeightValue;
             */
 
-            GardenWidth = (int)10000;
-            GardenHeight = (int)10000;
-
             InitializeComponent();
         }
 
@@ -69,7 +66,7 @@ namespace garden_planner
                     plant,
                     bad = false,
                     good = false,
-                    amount = (plant.Id % 8 == 0 ? 4 : 0)
+                    amount = (plant.Id % 4 == 0 ? 6 : 0)
                 };
                 PlantList.Items.Add(item);
             }
@@ -191,6 +188,9 @@ namespace garden_planner
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
         {
             canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
+            GardenWidth = (int)canvasWrapper.CanvasWidth;
+            GardenHeight = (int)canvasWrapper.CanvasHeight;
+
             RedrawCanvas();
             SolveButton_Click(null, null);
         }
@@ -232,6 +232,8 @@ namespace garden_planner
                     plantsToPlace.Add((plantCnt as dynamic).plant);
                 }
             }
+            var rand = new Random();
+            plantsToPlace = plantsToPlace.OrderBy(_ => rand.Next()).ToList();
 
             if (plantsToPlace.Count == 0)
                 return;
@@ -245,13 +247,32 @@ namespace garden_planner
 
                 while (plantsToPlace.Count > 0)
                 {
+                    Debug.WriteLine(GardenWidth);
                     var p1 = plantsToPlace.PopFirst();
-                    currX += (int)placedPlants.Last().plant.Totavv / 2 + (int)p1.Totavv / 2;
-                    placedPlants.Add(new PositionedPlant(p1, (int)currX, (int)currY));
-                    if (currX+p1.Totavv/2 > GardenWidth)
+                    if (currX+Math.Max((int)placedPlants.Last().plant.Totavv, (int)p1.Totavv) > GardenWidth)
                     {
                         currX = p1.Totavv/2;
+
+                        var overlapping = placedPlants.Where(x => AreHorizOverlapping(x, new PositionedPlant(p1, (int)currX, (int)currY)));
+                        long maxOverlapping;
+                        if (overlapping.Count() == 0)
+                        {
+                            maxOverlapping = 0;
+                        }
+                        else
+                        {
+                            maxOverlapping = overlapping.Max(y => y.plant.Sortavv);
+                        }
+                        var plusy = Math.Max(maxOverlapping, p1.Sortavv);
+                        currY += plusy;
+
+                        Debug.WriteLine("LINE BREAK");
                     }
+                    else
+                    {
+                        currX += Math.Max((int)placedPlants.Last().plant.Totavv, (int)p1.Totavv);
+                    }
+                    placedPlants.Add(new PositionedPlant(p1, (int)currX, (int)currY));
                 }
             }
 
