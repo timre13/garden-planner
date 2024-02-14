@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Xceed.Wpf.Toolkit;
 
 namespace garden_planner
 {
     /// <summary>
     /// Interaction logic for AddPlantDialog.xaml
     /// </summary>
-    public partial class AddPlantDialog : Window
+    public partial class AddPlantDialog
     {
-        private bool _isEditing = false;
-        private long currentId = 0;
+        private readonly bool _isEditing;
+        private readonly long currentId;
         public AddPlantDialog()
         {
             InitializeComponent();
@@ -126,7 +116,7 @@ namespace garden_planner
 
             if (errMsg != null)
             {
-                System.Windows.MessageBox.Show(errMsg, "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(errMsg, "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -166,7 +156,7 @@ namespace garden_planner
 
             if (errMsg != null)
             {
-                System.Windows.MessageBox.Show(errMsg, "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(errMsg, "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

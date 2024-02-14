@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -14,7 +6,7 @@ namespace garden_planner
 {
     class CanvasWrapper
     {
-        private Canvas canvas;
+        private readonly Canvas canvas;
         private int fieldWidth;
         private int fieldHeight;
 
@@ -27,7 +19,7 @@ namespace garden_planner
             var borderRect = new Rectangle() { 
                 Width = canvas.ActualWidth,
                 Height = canvas.ActualHeight,
-                Stroke = System.Windows.Media.Brushes.Black,
+                Stroke = Brushes.Black,
                 StrokeThickness = 1
             };
             Canvas.SetLeft(borderRect, 0);
@@ -41,7 +33,7 @@ namespace garden_planner
             var clearRect = new Rectangle() { 
                 Width = canvas.ActualWidth,
                 Height = canvas.ActualHeight,
-                Fill = System.Windows.Media.Brushes.White,
+                Fill = Brushes.White,
                 StrokeThickness = 1,
             };
             Canvas.SetLeft(clearRect, 0);

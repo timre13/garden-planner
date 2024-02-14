@@ -1,32 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace garden_planner
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         CanvasWrapper? canvasWrapper;
 
         public int GardenWidth;
         public int GardenHeight;
 
-        private bool canvasError = false;
+        private bool canvasError;
 
         public MainWindow()
         {
@@ -44,8 +34,8 @@ namespace garden_planner
             GardenHeight = (int)dlg.HeightValue;
             */
 
-            GardenWidth = (int)10000;
-            GardenHeight = (int)10000;
+            GardenWidth = 10000;
+            GardenHeight = 10000;
 
             InitializeComponent();
         }
@@ -59,11 +49,10 @@ namespace garden_planner
 
             foreach (var plant in plants)
             {
-                if (plant == null) continue;
                 int amount = 0;
-                if (plantAmounts.ContainsKey(plant.Id))
+                if (plantAmounts.TryGetValue(plant.Id, out var plantAmount))
                 {
-                    amount = plantAmounts[plant.Id];
+                    amount = plantAmount;
                 }
                 
                 var item = new PlantListItem(
@@ -80,7 +69,6 @@ namespace garden_planner
 
         private void PlantList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentItemI = PlantList.SelectedIndex;
             if (PlantList.SelectedItem == null) return;
             PlantListItem currentItem = (PlantListItem)PlantList.SelectedItem;
             MenuUpDown.Value = currentItem.amount;
@@ -90,13 +78,12 @@ namespace garden_planner
         private void AddPlantButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new AddPlantDialog();
-            dialog.Closed += (s, e) => PlantList_Loaded(new object(), new RoutedEventArgs());
+            dialog.Closed += (_, _) => PlantList_Loaded(new object(), new RoutedEventArgs());
             dialog.ShowDialog();
         }
 
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            var currentItemI = PlantList.SelectedIndex;
             PlantListItem currentItem = (PlantListItem)PlantList.SelectedItem;
             Plant selectedPlant = currentItem.plant;
             Database.RemovePlantDefinitionById(selectedPlant.Id);
@@ -104,7 +91,6 @@ namespace garden_planner
 
         private void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
-            var currentItemI = PlantList.SelectedIndex;
             PlantListItem currentItem = (PlantListItem)PlantList.SelectedItem;
             Plant selectedPlant = currentItem.plant;
             var dialog = new AddPlantDialog(
@@ -116,15 +102,14 @@ namespace garden_planner
                 Database.GetNeighs(selectedPlant.Id, true).Select(x => x.Name).ToList(),
                 Database.GetNeighs(selectedPlant.Id, false).Select(x => x.Name).ToList()
             );
-            dialog.Closed += (s, e) => PlantList_Loaded(new object(), new RoutedEventArgs());
+            dialog.Closed += (_, _) => PlantList_Loaded(new object(), new RoutedEventArgs());
             dialog.ShowDialog();
         }
 
-        private Dictionary<long, int> plantAmounts = new Dictionary<long, int>();
+        private readonly Dictionary<long, int> plantAmounts = new Dictionary<long, int>();
 
         private void MenuIntegerUpDown_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var currentItemI = PlantList.SelectedIndex;
             if (PlantList.SelectedItem == null) return;
             var currentItem = (PlantListItem)PlantList.SelectedItem;
             Plant selectedPlant = currentItem.plant;
@@ -132,14 +117,7 @@ namespace garden_planner
             {
                 return;
             }
-            if (plantAmounts.ContainsKey(selectedPlant.Id))
-            {
-                plantAmounts[selectedPlant.Id] = (int)MenuUpDown.Value;
-            }
-            else
-            {
-                plantAmounts.Add(selectedPlant.Id, (int)MenuUpDown.Value);
-            }
+            plantAmounts[selectedPlant.Id] = (int)MenuUpDown.Value;
         }
 
         private void RefreshPlantList()
@@ -155,9 +133,9 @@ namespace garden_planner
                 var item = (PlantListItem)PlantList.Items[i];
                 var plant = item.plant;
                 int amount = 0;
-                if (plantAmounts.ContainsKey(plant.Id))
+                if (plantAmounts.TryGetValue(plant.Id, out var plantAmount))
                 {
-                    amount = plantAmounts[plant.Id];
+                    amount = plantAmount;
                 }
 
                 if (goods.Contains(plant.Id))
@@ -206,11 +184,12 @@ namespace garden_planner
         {
             canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0);
             RedrawCanvas();
-            SolveButton_Click(null, null);
+            SolveButton_Click(new object(), new RoutedEventArgs());
         }
 
         private void RedrawCanvas()
         {
+            if (canvasWrapper == null) return;
             canvasWrapper.ClearCanvas();
             foreach (var p in placedPlants)
             {
@@ -219,22 +198,7 @@ namespace garden_planner
             canvasWrapper.DrawBorder(canvasError);
         }
 
-        List<PositionedPlant> placedPlants = new List<PositionedPlant>();
-
-        static long GetXDist(in Plant p1, in Plant p2)
-        {
-            return Math.Max(p1.Totavv, p2.Totavv);
-        }
-        static long GetYDist(in Plant p1, in Plant p2)
-        {
-            return Math.Max(p1.Sortavv, p2.Sortavv);
-        }
-
-        static bool AreHorizOverlapping(in PositionedPlant p1, in PositionedPlant p2)
-        {
-            return p2.LefX >= p1.LefX && p2.LefX <= p1.RightX
-                && p2.RightX >= p1.LefX && p2.RightX <= p1.RightX;
-        }
+        readonly List<PositionedPlant> placedPlants = new List<PositionedPlant>();
 
         private void SolveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -253,9 +217,8 @@ namespace garden_planner
             if (unorderedPlantsToPlace.Count == 0)
                 return;
             
-            var plantsToPlace = new List<Plant>();
-            
-            plantsToPlace.Add(unorderedPlantsToPlace.PopFirst());
+            var plantsToPlace = new List<Plant> { unorderedPlantsToPlace.PopFirst() };
+
             bool noGoods = false;
             bool onlyBads = false;
             int index = 0;
@@ -351,9 +314,9 @@ namespace garden_planner
 
     struct PositionedPlant
     {
-        public Plant plant;
-        public int x;
-        public int y;
+        public readonly Plant plant;
+        public readonly int x;
+        public readonly int y;
 
         public readonly long LefX => x - plant.Totavv/2;
         public readonly long TopY => y - plant.Sortavv/2;

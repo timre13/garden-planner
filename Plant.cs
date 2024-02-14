@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
 
 namespace garden_planner
 {
@@ -17,8 +12,8 @@ namespace garden_planner
         public long Totavv => Totav ?? 10;
         public string? Color { get; private set; }
 
-        public string SortavDisp { get => (Sortav is null or 0) ? "-" : Sortav!.ToString()!; }
-        public string TotavDisp { get => (Totav is null or 0) ? "-" : Totav!.ToString()!; }
+        public string SortavDisp => (Sortav is null or 0) ? "-" : Sortav!.ToString()!;
+        public string TotavDisp => (Totav is null or 0) ? "-" : Totav!.ToString()!;
 
         public int Amount { get; set; } = 0;
 
@@ -42,7 +37,7 @@ namespace garden_planner
             var name = reader.GetString(index++);
             var sortav = Database.GetValOrNull<long>(reader, index++)*2;
             var totav = Database.GetValOrNull<long>(reader, index++)*2;
-            var color = Database.GetValOrNull<string>(reader, index++);
+            var color = Database.GetValOrNull<string>(reader, index);
 
             return new Plant(id, name, sortav, totav, color);
         }
