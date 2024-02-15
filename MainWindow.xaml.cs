@@ -211,9 +211,12 @@ namespace garden_planner
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
         {
             canvasWrapper = new CanvasWrapper(mainCanvas, 0, 0,
-                (p) => PlantList.SelectedIndex = PlantList.Items.OfType<dynamic>()
-                .Select(x => x.plant as Plant).ToList()
-                .FindIndex(y => y!.Id == p.Id));
+                (p) => {
+                    PlantList.SelectedIndex = PlantList.Items.OfType<dynamic>()
+                        .Select(x => x.plant as Plant).ToList()
+                        .FindIndex(y => y!.Id == p.Id);
+                    PlantList.ScrollIntoView(PlantList.SelectedItem);
+            });
             RedrawCanvas();
             SolveButton_Click(null, null);
         }
