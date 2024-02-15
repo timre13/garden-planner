@@ -177,7 +177,13 @@ namespace garden_planner
 
         private void mainCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-            canvasWrapper = new CanvasWrapper(mainCanvas, GardenWidth, GardenHeight);
+            canvasWrapper = new CanvasWrapper(mainCanvas, GardenWidth, GardenHeight,
+                (p) => {
+                    PlantList.SelectedIndex = PlantList.Items.OfType<dynamic>()
+                        .Select(x => x.plant as Plant).ToList()
+                        .FindIndex(y => y!.Id == p.Id);
+                    PlantList.ScrollIntoView(PlantList.SelectedItem);
+            });
             RedrawCanvas();
             SolveButton_Click(new object(), new RoutedEventArgs());
         }

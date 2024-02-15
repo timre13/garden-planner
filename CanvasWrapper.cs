@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows;
@@ -21,6 +24,7 @@ namespace garden_planner
         private readonly Canvas canvas;
         private int fieldWidth;
         private int fieldHeight;
+        private Action<Plant> plantClickCallback;
 
         private int actualFieldWidth;
         private int actualFieldHeight;
@@ -29,13 +33,14 @@ namespace garden_planner
         private float heightRatio = 1;
         private float widthRatio = 1;
 
-        public CanvasWrapper(Canvas canvas, int localFieldWidth, int localFieldHeight) {
+        public CanvasWrapper(Canvas canvas, int localFieldWidth, int localFieldHeight, Action<Plant> plantClickCallback) {
             this.canvas = canvas;
             this.fieldWidth = localFieldWidth;
             this.fieldHeight = localFieldHeight;
             actualFieldWidth = localFieldWidth;
             actualFieldHeight = localFieldHeight;
             ratio = fieldWidth / fieldHeight;
+            this.plantClickCallback = plantClickCallback;
 
             Debug.WriteLine(((float)canvas.ActualHeight / (float)fieldHeight));
             Debug.WriteLine(fieldWidth * ((float)canvas.ActualHeight / (float)fieldHeight));
@@ -129,8 +134,9 @@ namespace garden_planner
             canvas.Children.Add(textBlock);
         }
 
-        public void DrawPlant(in Plant plant, int x, int y)
+        public void DrawPlant(Plant plant, int x, int y)
         {
+#if false
             var c1 = ((Color)ColorConverter.ConvertFromString(plant.Color));
             c1.A = 100;
             var shape1 = new Rectangle()
@@ -145,17 +151,46 @@ namespace garden_planner
             Canvas.SetTop(shape1, (y - plant.Sortavv) * heightRatio);
             canvas.Children.Add(shape1);
 
-            // var shape = new Ellipse
-            // {
-            //     Width = plant.Sortav * 2 ?? 10,
-            //     Height = plant.Sortav * 2?? 10,
-            //     Fill = new SolidColorBrush(c1),
-            //     Stroke = new SolidColorBrush(Colors.Black),
-            //     StrokeThickness = 1
-            // };
-            // Canvas.SetLeft(shape, (double)(x - plant.Sortav!));
-            // Canvas.SetTop(shape, (double)(y - plant.Sortav!));
-            // canvas.Children.Add(shape);
+            var shape = new Ellipse
+            {
+                Width = plant.Sortav * 2 ?? 10,
+                Height = plant.Sortav * 2?? 10,
+                Fill = new SolidColorBrush(c1),
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1
+            };
+            Canvas.SetLeft(shape, (double)(x - plant.Sortav!));
+            Canvas.SetTop(shape, (double)(y - plant.Sortav!));
+            canvas.Children.Add(shape);
+#else
+
+            MouseButtonEventHandler onPlantClick = (s, e) => {
+                Debug.WriteLine($"Clicked on {plant.Name}");
+                plantClickCallback(plant);
+            };
+
+            var shape = new Ellipse
+            {
+                Width = 20,
+                Height = 20,
+                Fill = new SolidColorBrush(((Color)ColorConverter.ConvertFromString(plant.Color))),
+                Stroke = new SolidColorBrush(Colors.Black),
+                StrokeThickness = 1,
+                Cursor = Cursors.Hand
+            };
+            shape.MouseEnter += (s, e) => {
+                (s as Shape)!.Stroke = new SolidColorBrush(Colors.Green);
+                (s as Shape)!.StrokeThickness = 4;
+            };
+            shape.MouseLeave += (s, e) => {
+                (s as Shape)!.Stroke = new SolidColorBrush(Colors.Black);
+                (s as Shape)!.StrokeThickness = 1;
+            };
+            shape.MouseUp += onPlantClick;
+            Canvas.SetLeft(shape, x - 10);
+            Canvas.SetTop(shape, y - 10);
+            canvas.Children.Add(shape);
+#endif
 
             var line1 = new Line()
             {
@@ -164,8 +199,18 @@ namespace garden_planner
                 X2 = (x * widthRatio) + 5 * widthRatio,
                 Y2 = (y * heightRatio) + 5 * heightRatio,
                 Stroke = new SolidColorBrush(Colors.Black),
-                StrokeThickness = 1
+                StrokeThickness = 1,
+                Cursor = Cursors.Hand
             };
+            line1.MouseEnter += (s, e) => {
+                shape.Stroke = new SolidColorBrush(Colors.Green);
+                shape.StrokeThickness = 4;
+            };
+            line1.MouseLeave += (s, e) => {
+                shape.Stroke = new SolidColorBrush(Colors.Black);
+                shape.StrokeThickness = 1;
+            };
+            line1.MouseUp += onPlantClick;
             canvas.Children.Add(line1);
 
             var line2 = new Line()
@@ -175,8 +220,18 @@ namespace garden_planner
                 X2 = (x * widthRatio) - 5 * widthRatio,
                 Y2 = (y * heightRatio) + 5 * heightRatio,
                 Stroke = new SolidColorBrush(Colors.Black),
-                StrokeThickness = 1
+                StrokeThickness = 1,
+                Cursor = Cursors.Hand
             };
+            line2.MouseEnter += (s, e) => {
+                shape.Stroke = new SolidColorBrush(Colors.Green);
+                shape.StrokeThickness = 4;
+            };
+            line2.MouseLeave += (s, e) => {
+                shape.Stroke = new SolidColorBrush(Colors.Black);
+                shape.StrokeThickness = 1;
+            };
+            line2.MouseUp += onPlantClick;
             canvas.Children.Add(line2);
         }
     }
