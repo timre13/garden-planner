@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using System.Windows;
 using Color = System.Windows.Media.Color;
@@ -176,7 +177,25 @@ namespace garden_planner
                 Fill = new SolidColorBrush(((Color)ColorConverter.ConvertFromString(plant.Color))),
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1,
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                ToolTip = new StackPanel
+                {
+                    Children =
+                    {
+                        new Label
+                        {
+                            Content = plant.Name.ToUpper(),
+                            FontWeight = FontWeights.Bold,
+                            Foreground = new SolidColorBrush(((Color)ColorConverter.ConvertFromString(plant.Color))),
+                            Effect = new DropShadowEffect{ Color=Colors.Black, ShadowDepth=1 }
+                        },
+                        new Label
+                        {
+                            Content = $"Pozíció: {x}cm, {y}cm",
+                            FontWeight = FontWeights.Bold,
+                        }
+                    }
+                }
             };
             shape.MouseEnter += (s, e) => {
                 (s as Shape)!.Stroke = new SolidColorBrush(Colors.Green);
@@ -200,17 +219,9 @@ namespace garden_planner
                 Y2 = (y * heightRatio) + 5 * heightRatio,
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1,
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                IsHitTestVisible = false
             };
-            line1.MouseEnter += (s, e) => {
-                shape.Stroke = new SolidColorBrush(Colors.Green);
-                shape.StrokeThickness = 4;
-            };
-            line1.MouseLeave += (s, e) => {
-                shape.Stroke = new SolidColorBrush(Colors.Black);
-                shape.StrokeThickness = 1;
-            };
-            line1.MouseUp += onPlantClick;
             canvas.Children.Add(line1);
 
             var line2 = new Line()
@@ -221,17 +232,9 @@ namespace garden_planner
                 Y2 = (y * heightRatio) + 5 * heightRatio,
                 Stroke = new SolidColorBrush(Colors.Black),
                 StrokeThickness = 1,
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                IsHitTestVisible = false
             };
-            line2.MouseEnter += (s, e) => {
-                shape.Stroke = new SolidColorBrush(Colors.Green);
-                shape.StrokeThickness = 4;
-            };
-            line2.MouseLeave += (s, e) => {
-                shape.Stroke = new SolidColorBrush(Colors.Black);
-                shape.StrokeThickness = 1;
-            };
-            line2.MouseUp += onPlantClick;
             canvas.Children.Add(line2);
         }
     }
