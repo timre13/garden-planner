@@ -93,6 +93,7 @@ namespace garden_planner
             string? errMsg = null;
             long sortav = 0;
             long totav = 0;
+            var plants = Database.GetAllPlantsOrdered();
 
             HashSet<string> gns = new HashSet<string>(GoodNeighsListBox.Items.OfType<string>());
             HashSet<string> bns = new HashSet<string>(BadNeighsListBox.Items.OfType<string>());
@@ -100,6 +101,10 @@ namespace garden_planner
             if (string.IsNullOrEmpty(NameTB.Text))
             {
                 errMsg = "A növény neve nem lehet üres.";
+            }
+            else if (plants.Count(i => i.Name == NameTB.Text) > 0)
+            {
+                errMsg = "Ez a növény már létezik.";
             }
             else if (string.IsNullOrEmpty(SortavTB.Text) || !long.TryParse(SortavTB.Text, out sortav) || sortav < 1 || sortav > 999)
             {
