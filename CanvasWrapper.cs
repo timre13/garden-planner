@@ -1,12 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Windows;
+using Color = System.Windows.Media.Color;
+using ColorConverter = System.Windows.Media.ColorConverter;
+using Rectangle = System.Windows.Shapes.Rectangle;
 
 namespace garden_planner
 {
@@ -27,6 +33,8 @@ namespace garden_planner
             this.canvas = canvas;
             this.fieldWidth = localFieldWidth;
             this.fieldHeight = localFieldHeight;
+            actualFieldWidth = localFieldWidth;
+            actualFieldHeight = localFieldHeight;
             ratio = fieldWidth / fieldHeight;
 
             Debug.WriteLine(((float)canvas.ActualHeight / (float)fieldHeight));
@@ -63,20 +71,35 @@ namespace garden_planner
             // Canvas.SetLeft(borderRect, 0);
             // Canvas.SetTop(borderRect, 0);
             // canvas.Children.Add(borderRect);
+            
         }
 
         public void ClearCanvas()
         {
             canvas.Children.Clear();
-            // var clearRect = new Rectangle() { 
-            //     Width = canvas.ActualWidth,
-            //     Height = canvas.ActualHeight,
-            //     Fill = Brushes.White,
-            //     StrokeThickness = 1,
-            // };
-            // Canvas.SetLeft(clearRect, 0);
-            // Canvas.SetTop(clearRect, 0);
-            // canvas.Children.Add(clearRect);
+            var width = new TextBlock()
+            {
+                Text = actualFieldWidth.ToString(),
+                FontSize = 10,
+                Foreground = Brushes.Black
+            };
+            width.Measure(new System.Windows.Size(double.PositiveInfinity, double.PositiveInfinity));
+            Canvas.SetLeft(width, fieldWidth - width.DesiredSize.Width - 2);
+            Canvas.SetTop(width, fieldHeight - width.DesiredSize.Height - 2);
+            canvas.Children.Add(width);
+            
+            var height = new TextBlock()
+            {
+                Text = actualFieldHeight.ToString(),
+                FontSize = 10,
+                Foreground = Brushes.Black,
+                RenderTransform = new RotateTransform(-90),
+                RenderTransformOrigin = new System.Windows.Point(0, 0)
+            };
+            height.Measure(new System.Windows.Size(double.PositiveInfinity, double.PositiveInfinity));
+            Canvas.SetLeft(height, fieldWidth - height.DesiredSize.Height  - 2);
+            Canvas.SetTop(height, fieldHeight - height.DesiredSize.Width - 2);
+            canvas.Children.Add(height);
         }
 
         public void DrawBorder(bool red = false)
